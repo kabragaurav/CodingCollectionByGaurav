@@ -19,6 +19,16 @@ public class CoinChange {
     private int coinHelper(int[] coins, int amount, int current, int[][] cache) {
     	/**
     	 * We have to return fewest NUMBER OF COINS that can make a given amount.
+    	 * 
+    	 * -----------------------------------------------------------------
+    	 * Can we use greedy approach and use just % or / to get answer?
+    	 * Let us see:
+    	 * Say, amount=110 and denominations={20,50}.
+    	 * Using greedy approach, we first use 50 bills -> 50+50 -> 100 amount collected.
+    	 * But remaining 10 amount cannot be collected now since we don't have bill of value 10.
+    	 * Hence, greedy approach won't work and have to apply dp.
+    	 * -----------------------------------------------------------------
+    	 * 
     	 * If amount < 0 or index of current position exceeds bounds of array, we return very large value indicating that we will return -1 saying we cannot make that amount.
     	 * If at start amount is 0, that means 0 number of coins are required to make that amount.
     	 * Else once we choose coin at current value and see number of coins to make amount-value of choosen coin.
@@ -49,6 +59,7 @@ public class CoinChange {
 		// TESTCASES
 		System.out.println(cc.coinChange(new int[] {2}, 3));
 		System.out.println(cc.coinChange(new int[] {1,2,5}, 11));
+		System.out.println(cc.coinChange(new int[] {20, 50}, 110));
 	}
 
 }
