@@ -1,6 +1,6 @@
 /**
  * Google
- * Given two strings s and t, return the minimum number of operations needed to convert s into t 
+ * Given two non-null strings s and t, return the minimum number of operations needed to convert s into t 
  * where a single operation consists of inserting a character, deleting a character, or replacing a character.
  */
 package DP.Others;
@@ -34,6 +34,14 @@ public class EditDistance {
 		 * In replacement in word1, we move both pointers by +1 to right. E.g. cat, bat
 		 * In deletion in word1, we move only start1 by +1 to right. E.g. bta, ba
 		 * In insertion in word1, we move only start2 by +1 to right. E.g. ba, bta
+		 * 
+		 * Time Complexity: Without cache[][], it is O(3^min(s1.length(),s2.length())) since we have 3 ways(replace, delete, insert) for each char in word1.
+		 * 					With cache[][], it is O(s1.length() * s2.length())
+		 * Space Complexity: O(s1.length() * s2.length()) in the form of cache[][]
+		 * 
+		 * The solutions like below are called top-down approach solutions.
+		 * 
+		 * Note that word1 and word2 are interchangeable. Answer will be the same since insertion in word1 means deletion in word2 and vice-versa.
 		 */
 		if(start1 > end1 && start2 > end2) {
 			return 0;
@@ -71,6 +79,7 @@ public class EditDistance {
 	public static void main(String[] args) {
 		// TESTCASES
 		String[][] words = new String[][] {
+			{"", ""},
 			{"beach", "batch"},
 			{"cat", "bat"},
 			{"horse", "ros"},
