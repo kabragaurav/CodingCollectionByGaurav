@@ -42,6 +42,16 @@ public class Sudoku {
     private boolean solver(char[][] grid, int N) {
     	/**
     	 * Logic:
+    	 * In backtracking, we search depth-first for solutions, 
+    	 * backtracking to the last valid path as soon as we hit a dead end.
+    	 * Backtracking reduces the search space since we no longer have to follow down any paths 
+    	 * we know are invalid. This is called pruning. 
+    	 * We must be able to test partial solutions: for example, we can't find a global optimum 
+    	 * using backtracking, since we have no idea if the solution we're currently on can lead to it
+    	 * or not. But we can, for example, solve Sudoku using backtracking. 
+    	 * We can know immediately if our solution so far is invalid by testing if two of the same 
+    	 * number appear in the same row, column, or square.
+    	 * 
     	 * Just like in N-Queen problem, here also we have constraint that says in a row and col (as well as in box/subgrid) there should be no duplicate (just like queen should not threat)
     	 * 
     	 * Time complexity: O(9^(N*N)). For every unassigned position (upper bound N*N), there are 9 possible options.
