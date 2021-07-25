@@ -1,11 +1,11 @@
 /**
  * Given an unordered list of flights taken by someone, each represented as (origin, destination) pairs, 
  * and a starting airport, compute the person's itinerary.
- * All of the tickets belong to a man who departs from "JFK", thus, the itinerary must begin with "JFK". 
- * If there are multiple valid itineraries, you should return the itinerary that has the smallest lexical order 
+ * All of the tickets belong to a man who departs from "JAIPUR", thus, the itinerary must begin with "JAIPUR". 
+ * If there are multiple valid itineraries, you should return the itinerary that has the smallest lexicographical order 
  * when read as a single string.
  * For example, the itinerary ["JFK", "LGA"] has a smaller lexical order than ["JFK", "LGB"].
- * you may assume all tickets form at least one valid itinerary. You must use all the tickets once and only once.
+ * You may assume all tickets form at least one valid itinerary. You must use all the tickets once and only once.
  */
 
 package DepthFirstSearch;
@@ -56,7 +56,7 @@ public class FlightItinerary {
 		 */
         Map<String, PriorityQueue<String>> adjacencyList = getAdjacencyListRepr(tickets);
         itinerary = new LinkedList<String>();
-        dfs("JFK", adjacencyList);
+        dfs("JAIPUR", adjacencyList);
         return itinerary;
     }
 	
@@ -65,20 +65,20 @@ public class FlightItinerary {
 		// TESTCASES
 		List<List<String>> ls = new ArrayList<>();
 		ls.add(new ArrayList<String>() {{
-			add("MUC");
-			add("LHR");
+			add("DELHI");
+			add("MUMBAI");
 			}});
 		ls.add(new ArrayList<String>() {{
-			add("JFK");
-			add("MUC");
+			add("JAIPUR");
+			add("DELHI");
 			}});
 		ls.add(new ArrayList<String>() {{
-			add("SFO");
-			add("SJC");
+			add("KOLKATA");
+			add("MADRAS");
 			}});
 		ls.add(new ArrayList<String>() {{
-			add("LHR");
-			add("SFO");
+			add("MUMBAI");
+			add("KOLKATA");
 			}});
 		
 		System.out.println(findItinerary(ls));
@@ -86,24 +86,24 @@ public class FlightItinerary {
 				
 		ls = new ArrayList<>();
 		ls.add(new ArrayList<String>() {{
-			add("JFK");
-			add("SFO");
+			add("JAIPUR");
+			add("DELHI");
 			}});
 		ls.add(new ArrayList<String>() {{
-			add("JFK");
-			add("ATL");
+			add("JAIPUR");
+			add("MADRAS");
 			}});
 		ls.add(new ArrayList<String>() {{
-			add("SFO");
-			add("ATL");
+			add("DELHI");
+			add("MADRAS");
 			}});
 		ls.add(new ArrayList<String>() {{
-			add("ATL");
-			add("JFK");
+			add("MADRAS");
+			add("JAIPUR");
 			}});
 		ls.add(new ArrayList<String>() {{
-			add("ATL");
-			add("SFO");
+			add("MADRAS");
+			add("DELHI");
 			}});
 		System.out.println(findItinerary(ls));
 	}
