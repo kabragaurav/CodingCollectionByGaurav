@@ -9,13 +9,15 @@
  */
 package Interviews;
 
+import java.util.Stack;
+
 /**
  * @author gaurav kabra
  * @since 14 August 2021
  */
 
 public class FindCelebrity {
-    private static int celebrity(int M[][]) {
+    private static int celebrity(int[][] M) {
         /**
          * Logic:
          * We use a 2-pointer approach. Assume the persons are standing in a line.
@@ -36,12 +38,58 @@ public class FindCelebrity {
 
         int candidate = i;
         for(i=0; i<N; i++) {
-            // i must now be candidate and everyone must know i but i must know nobody.
+            // i must not be candidate and everyone must know i but i must know nobody.
             if(i != candidate && (M[i][candidate] == 0 || M[candidate][i] == 1)) {
                 return -1;
             }
         }
         return candidate;
+    }
+
+    private static int celebrityUsingStack(int[][] M) {
+        /**
+         * Logic:
+         * We put each person in stack (i.e. 0 to N-1)
+         * While size of stack > 1
+         *      pop top two persons and based on condition of being celebrity put back one of them if she satisfies the condition.
+         * Now size of stack is can be 1 or 0 (i.e. empty).
+         * In  either again try to find a suitable candidate for celebrity. Store candidate in ans variable.
+         * At last verify using for loop, if candidate is really the celebrity.
+         *
+         * Time Complexity : O(N) due to comparisons after popping
+         * Space Complexity : O(N) due to stack.
+         */
+        Stack<Integer> stk = new Stack<>();
+        int N = M.length;
+        for(int i=0; i<N; i++) {
+            stk.push(i);
+        }
+        while(stk.size() > 1) {
+            int top = stk.pop();
+            int secondTop = stk.pop();
+            // find which one can be celebrity
+            if(M[top][secondTop] == 1 && M[secondTop][top] == 0) {
+                stk.push(secondTop);
+            } else if(M[secondTop][top] == 1 && M[top][secondTop] == 0) {
+                stk.push(top);
+            }
+        }
+        int ans = -1;
+        if(stk.size() == 1) {
+            int top = stk.pop();
+            for(int i=0; i<N; i++) {
+                if(i != top && (M[i][top] == 0 || M[top][i] == 1)) {
+                    ans = -1;
+                }
+            }
+            ans = top;
+        }
+        for(int i=0; ans!=-1 && i<N; i++) {
+            if(i != ans && (M[i][ans] == 0 || M[ans][i] == 1)) {
+                return -1;
+            }
+        }
+        return ans;
     }
 
     // driver - main method
@@ -56,6 +104,23 @@ public class FindCelebrity {
                 {1,1,1},
                 {1,1,1},
                 {1,1,1}
+        }));
+
+        System.out.println(celebrityUsingStack(new int[][] {
+                {1,1,0},
+                {0,1,0},
+                {0,1,1}
+        }));
+        System.out.println(celebrityUsingStack(new int[][] {
+                {1,1,1},
+                {1,1,1},
+                {1,1,1}
+        }));
+        System.out.println(celebrityUsingStack(new int[][] {
+                {0,1,1,0},
+                {0,0,0,1},
+                {1,1,0,1},
+                {1,1,1,0}
         }));
     }
 }
