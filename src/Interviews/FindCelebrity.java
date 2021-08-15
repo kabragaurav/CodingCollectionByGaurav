@@ -74,22 +74,16 @@ public class FindCelebrity {
                 stk.push(top);
             }
         }
-        int ans = -1;
+        int top = -1;
         if(stk.size() == 1) {
-            int top = stk.pop();
+            top = stk.pop();
             for(int i=0; i<N; i++) {
-                if(i != top && (M[i][top] == 0 || M[top][i] == 1)) {
-                    ans = -1;
-                }
-            }
-            ans = top;
-        }
-        for(int i=0; ans!=-1 && i<N; i++) {
-            if(i != ans && (M[i][ans] == 0 || M[ans][i] == 1)) {
+            if(i != top && (M[i][top] == 0 || M[top][i] == 1)) {
                 return -1;
             }
+          }
         }
-        return ans;
+        return top;
     }
 
     // driver - main method
