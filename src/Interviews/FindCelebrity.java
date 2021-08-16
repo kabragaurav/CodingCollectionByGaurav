@@ -53,8 +53,8 @@ public class FindCelebrity {
          * While size of stack > 1
          *      pop top two persons and based on condition of being celebrity put back one of them if she satisfies the condition.
          * Now size of stack is can be 1 or 0 (i.e. empty).
-         * In  either again try to find a suitable candidate for celebrity. Store candidate in ans variable.
-         * At last verify using for loop, if candidate is really the celebrity.
+         * In case size is 1, the top of stack is the candidate.
+         * Verify using for loop, if candidate is really the celebrity.
          *
          * Time Complexity : O(N) due to comparisons after popping
          * Space Complexity : O(N) due to stack.
@@ -74,22 +74,16 @@ public class FindCelebrity {
                 stk.push(top);
             }
         }
-        int ans = -1;
+        int top = -1;
         if(stk.size() == 1) {
-            int top = stk.pop();
+            top = stk.pop();
             for(int i=0; i<N; i++) {
                 if(i != top && (M[i][top] == 0 || M[top][i] == 1)) {
-                    ans = -1;
+                    return -1;
                 }
             }
-            ans = top;
         }
-        for(int i=0; ans!=-1 && i<N; i++) {
-            if(i != ans && (M[i][ans] == 0 || M[ans][i] == 1)) {
-                return -1;
-            }
-        }
-        return ans;
+        return top;
     }
 
     // driver - main method
