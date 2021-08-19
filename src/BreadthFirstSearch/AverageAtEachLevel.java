@@ -19,6 +19,11 @@ import java.util.Optional;
 
 public class AverageAtEachLevel {
     private static List<Double> getAverageAtEachLevel(TreeNode<Integer> root) {
+        /**
+         * Logic:
+         * Get level order traversal of tree.
+         * And then calculate average by adding values at each level and dividing by number of nodes at that level.
+         */
         List<List<Long>> lists = LevelOrderTraversalUtil.levelOrderTraversalWithValues(root);
 
         List<Double> ans = new ArrayList<>();
