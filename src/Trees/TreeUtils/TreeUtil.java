@@ -10,7 +10,7 @@ package Trees.TreeUtils;
 public class TreeUtil {
 	
 	// helper method for getDummyBinarySearchTree()
-	private static TreeNode<Integer> getTreeNode(Integer val) {
+	public static TreeNode<Integer> getTreeNode(Integer val) {
 	    TreeNode<Integer> treeNode = new TreeNode<Integer>(val);
 		return treeNode;
 	}
