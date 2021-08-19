@@ -20,6 +20,9 @@ public class LevelOrderTraversalUtil {
 	/**
 	 * @param TreeNode<Integer> root
 	 * @return List<List<TreeNode<Integer>>> empty or having nodes in order of level wise traversal of tree
+	 *
+	 * Time Complexity : O(N) as we visit each node only once in queue.
+	 * Space Complexity : O(N) due to queue
 	 */
 	
 	public static List<List<TreeNode<Integer>>> levelOrderTraversal(TreeNode<Integer> root) {
@@ -53,6 +56,9 @@ public class LevelOrderTraversalUtil {
 	/**
 	 * @param TreeNode<Integer> root
 	 * @return List<List<Integer>> empty or having nodes in order of level wise traversal of tree
+	 *
+	 * Time Complexity : O(N) as we visit each node only once in queue.
+	 * Space Complexity : O(N) due to queue
 	 */
 
 	public static List<List<Long>> levelOrderTraversalWithValues(TreeNode<Integer> root) {
