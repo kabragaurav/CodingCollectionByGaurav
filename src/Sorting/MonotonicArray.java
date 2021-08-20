@@ -22,6 +22,7 @@ public class MonotonicArray {
          * If no, check similarly for decreasing.
          *
          * Time Complexity : O(N) due to worst case 2 passes through nums array
+         * Space Complexity : O(1)
          */
         if(nums.length == 1) {
             return true;
