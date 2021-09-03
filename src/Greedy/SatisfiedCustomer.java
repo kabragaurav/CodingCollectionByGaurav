@@ -25,6 +25,9 @@ public class SatisfiedCustomer {
          * We iterate over appetite array and see if present cake can satisfy 
          * If not then we remain at same appetite but go to next cake.
          * If so we increase the answer.
+         *
+         * Time Complexity: O(N)
+         * Space Complexity: O(1)
          */
         Arrays.sort(appetite);
         Arrays.sort(cake);
