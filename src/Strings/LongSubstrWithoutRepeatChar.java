@@ -1,3 +1,7 @@
+/**
+ * Given a string s,
+ * return the length of the longest substring that contains only unique characters.
+ */
 package Strings;
 
 import java.util.HashMap;
@@ -7,6 +11,7 @@ import java.util.Map;
  * @author gaurav kabra
  * @since 25 Sept 2021
  **/
+
 public class LongSubstrWithoutRepeatChar {
 
     /**
