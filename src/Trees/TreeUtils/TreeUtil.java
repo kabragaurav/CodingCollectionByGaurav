@@ -56,7 +56,7 @@ public class TreeUtil {
 	
 		// helper method for getDummyBinarySearchTreeLong()
 		private static TreeNode<Long> getTreeNode(Long val) {
-		    TreeNode<Long> treeNode = new TreeNode<Long>(val);
+		    TreeNode<Long> treeNode = new TreeNode<>(val);
 			return treeNode;
 		}
 		
@@ -97,5 +97,63 @@ public class TreeUtil {
 			
 			return root;
 		}
+
+	/**
+	 * @return TreeNode root of a sample binary tree (BT)
+	 */
+	public static TreeNode getDummyBinaryTree1() {
+
+		/**
+		 * Make this BST:
+		 * 					  1      -> 1
+		 * 				   ->1    \
+		 * 				        3   -> 1
+		 * 			           /  \
+		 * 			          2    4
+		 * 						    \
+		 * 							 5
+		 */
+
+		TreeNode<Integer> root = getTreeNode(1);
+		TreeNode<Integer> two = getTreeNode(2);
+		TreeNode<Integer> four = getTreeNode(4);
+		TreeNode<Integer> three = getTreeNode(3);
+		TreeNode<Integer> five = getTreeNode(5);
+
+		root.right = three;
+		three.left = two;
+		three.right = four;
+		four.right = five;
+
+		return root;
+	}
+
+	/**
+	 * @return TreeNode root of a sample binary tree (BT)
+	 */
+	public static TreeNode getDummyBinaryTree2() {
+
+		/**
+		 * Make this BST:
+		 * 					  2
+		 * 				       \
+		 * 				        3
+		 * 				       /
+		 * 				      2
+		 * 				     /
+		 * 				    1
+		 */
+
+		TreeNode<Integer> root = getTreeNode(2);
+		TreeNode<Integer> three = getTreeNode(3);
+		TreeNode<Integer> two = getTreeNode(2);
+		TreeNode<Integer> one = getTreeNode(1);
+
+		root.right = three;
+		three.left = two;
+		two.left = one;
+
+		return root;
+	}
 
 }
