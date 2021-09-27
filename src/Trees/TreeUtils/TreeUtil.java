@@ -105,9 +105,9 @@ public class TreeUtil {
 
 		/**
 		 * Make this BST:
-		 * 					  1      -> 1
-		 * 				   ->1    \
-		 * 				        3   -> 1
+		 * 					  1
+		 * 				       \
+		 * 				        3
 		 * 			           /  \
 		 * 			          2    4
 		 * 						    \
