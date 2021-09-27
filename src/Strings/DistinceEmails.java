@@ -5,7 +5,7 @@
  * Email addresses may also contain '+' or '.' characters besides lowercase letters.
  * If there is a '.' in the local name of the email address it is ignored.
  * Everything after a '+' in the local name is also ignored. For example an.and+raj@india.com
- * is equivalent to anand@dailybyte.com.
+ * is equivalent to anand@india.com.
  * Given a list of email addresses, find the number of unique addresses.
  */
 package Strings;
