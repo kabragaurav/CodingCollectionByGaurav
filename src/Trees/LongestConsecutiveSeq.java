@@ -1,6 +1,6 @@
 /**
  * Google, Facebook
- * Given a binary tree, find the length og the longest consecutive sequence path.
+ * Given a binary tree, find the length of the longest consecutive sequence path.
  * Path may start from any node and has to be from parent to child (not reverse).
  */
 package Trees;
@@ -19,28 +19,23 @@ public class LongestConsecutiveSeq {
      * TC: O(N) due to entire traversal of tree
      * SC: O(N) if the tree is skewed then in recursive call stack
      */
-    private static int traverse(TreeNode<Integer> root, int lenSoFar, Integer prevVal) {
+    private static void traverse(TreeNode<Integer> root, int lenSoFar, int target, int[] maxLen) {
         if(null == root) {
-            return lenSoFar;
+            return;
+        } else if(target == root.val) {
+            lenSoFar++;
+        } else {
+            lenSoFar = 1;
         }
-        if(null == prevVal || root.val == prevVal + 1) {
-            lenSoFar += 1;
-            int l = traverse(root.left, lenSoFar, root.val);
-            int r = traverse(root.right, lenSoFar, root.val);
-            lenSoFar = Math.max(l, r);
-        }
-        int l = 0, r = 0;
-        if(null != root.left) {
-            l = traverse(root.left, 1, (Integer) root.val);
-        }
-        if(null != root.right) {
-            r = traverse(root.right, 1, (Integer) root.val);
-        }
-        return Math.max(lenSoFar, Math.max(l, r));
+        maxLen[0] = Math.max(maxLen[0], lenSoFar);
+        traverse(root.left, lenSoFar, root.val+1, maxLen);
+        traverse(root.right, lenSoFar, root.val+1, maxLen);
     }
 
     private static int longestConsecutiveSeqLen(TreeNode<Integer> root) {
-        return traverse(root, 0, null);    // since root has no parent, prevVal = null
+        int[] maxLen = new int[1];                   // pass by ref so that it can be changed in recursive calls and reflected here
+        traverse(root, 0, 0, maxLen);   // initially target can be any value, here taking 0
+        return maxLen[0];
     }
 
     // driver - main method
