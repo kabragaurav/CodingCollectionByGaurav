@@ -12,6 +12,7 @@ import java.util.Arrays;
 
 public class RotateImage {
     private static void rotate(int[][] matrix) {
+
         int N = matrix.length;
 
         // Transpose -- diagonal as axis
