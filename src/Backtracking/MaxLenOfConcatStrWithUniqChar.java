@@ -21,7 +21,7 @@ public class MaxLenOfConcatStrWithUniqChar {
      * If we don't want to make ans a global variable but want it to be updated in recursive call,
      * then make it like this and pass to recursive calls:
      *
-     * int[] ans = new int[1];      // size is 1 and final answer will be ans[0] now
+     * int[] ans = new int[1];      // size is 1 and final answer will be ans[0]
      */
     private static int ans;
 
@@ -60,7 +60,7 @@ public class MaxLenOfConcatStrWithUniqChar {
          *
          * We return max length string obtainable in this way.
          */
-        ans = 0;            // clear the previous value
+        ans = 0;            // clear the previous value since ans is class-level (i.e. static)
         maxLengthHelper(arr, 0, "");
         return ans;
     }
