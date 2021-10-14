@@ -19,7 +19,6 @@ public class KeyBoardRowTyping {
             "zxcvbnm"
     };
 
-
     private static String[] findRowWords(String[] words) {
         List<String> ls = new ArrayList<>();        // final answer
         // for each character in each word, see in which row the character falls.

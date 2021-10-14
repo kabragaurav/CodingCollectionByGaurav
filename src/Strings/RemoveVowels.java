@@ -4,7 +4,7 @@
  */
 package Strings;
 
-import java.util.stream.*;
+import java.util.stream.Stream;
 
 /**
  * @author gaurav kabra
@@ -22,22 +22,26 @@ public class RemoveVowels {
                 x != 'u';
     }
 
-    private static void removeVowels(String s) {
+    private static String removeVowels(String s) {
         /**
          * Logic:
          * Convert s to char stream and filter remove vowels.
          */
-        Stream<Character> charStream = s.chars().mapToObj(i->(char)i);
-        charStream.filter( x -> isNotVowel(x)).forEach(System.out::print);
-        System.out.println();
+        StringBuilder sb = new StringBuilder();
+        Stream<Character> charStream = s.chars()            // gives IntStream
+                                        .mapToObj(i->(char)i);      // convert int to char
+        // instead you could try print here only
+        // using forEach(System.out::print);
+        charStream.filter( x -> isNotVowel(x)).forEach(x -> sb.append(x));
+        return sb.toString();
     }
 
     // driver - main method
     public static void main(String []args){
         // TESTCASES
-        removeVowels("aeiou");
-        removeVowels("xyz");
-        removeVowels("hi");
-        removeVowels("what is your name ?");
+        System.out.println(removeVowels("aeiou"));
+        System.out.println(removeVowels("xyz"));
+        System.out.println(removeVowels("hi"));
+        System.out.println(removeVowels("what is your name ?"));
     }
 }
