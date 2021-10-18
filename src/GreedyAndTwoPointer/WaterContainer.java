@@ -2,7 +2,7 @@
  * Given N non-negative integers a1, a2, ..., an , where each represents a very thin vertical wall at coordinate (i, ai), 0 <= i < N.
  * Find two walls, which, together with the x-axis forming a container, such that the container contains the most water.
  */
-package Greedy;
+package GreedyAndTwoPointer;
 
 /**
  * @author gaurav kabra

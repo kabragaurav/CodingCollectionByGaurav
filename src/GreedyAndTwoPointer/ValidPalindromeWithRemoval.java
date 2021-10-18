@@ -3,7 +3,7 @@
  * Given a string and the ability to delete at most one character,
  * return whether or not it can form a palindrome.
  */
-package Greedy;
+package GreedyAndTwoPointer;
 
 public class ValidPalindromeWithRemoval {
     private static boolean validPalindrome(String s) {

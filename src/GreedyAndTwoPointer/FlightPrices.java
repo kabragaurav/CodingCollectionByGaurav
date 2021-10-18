@@ -4,9 +4,9 @@
  * The cost of sending the ith employee to office A and office B is given by 
  * prices[i][0] and prices[i][1] respectively. Given that half the employees must be sent to office A 
  * and half the employees must be sent to office B,
- * return the minimum cost the company must pay for all their employees’ flights.
+ * return the minimum cost the company must pay for all their employeesï¿½ flights.
  */
-package Greedy;
+package GreedyAndTwoPointer;
 
 import java.util.Arrays;
 

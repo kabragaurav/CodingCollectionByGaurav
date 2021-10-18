@@ -7,7 +7,7 @@
  * ith guest’s appetite, and the elements of cake represents the sizes of cake you have
  * to distribute, return the maximum number of guests that you can satisfy.
  */
-package Greedy;
+package GreedyAndTwoPointer;
 
 import java.util.Arrays;
 

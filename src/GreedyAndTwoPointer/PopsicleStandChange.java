@@ -1,6 +1,6 @@
 /**
  * Amazon
- * You’re running a popsicle stand where each popsicle costs $5. 
+ * Youï¿½re running a popsicle stand where each popsicle costs $5. 
  * Each customer you encountered pays with either a $5 bill, a $10 bill, or a $20 bill 
  * and only buys a single popsicle. The customers that come to your stand come in the ordered given by
  * the customers array where customers[i] represents the bill the ith customer pays with. 
@@ -8,7 +8,7 @@
  * while also giving the correct amount of change.
  * The customer won't wait for change so his changes must be returned immediately.
  */
-package Greedy;
+package GreedyAndTwoPointer;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -4,7 +4,7 @@
  * Given a wheelbarrow that can carry up to (not including) capacity pounds (say 5000),
  * return then maximum number of bricks you can place in your wheelbarrow to transport.
  */
-package Greedy;
+package GreedyAndTwoPointer;
 
 import java.util.Arrays;
 

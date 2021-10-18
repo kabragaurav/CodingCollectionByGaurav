@@ -1,12 +1,12 @@
 /**
  * Apple
- * You are serving people in a lunch line and need to ensure each person gets a “balanced” meal. 
+ * You are serving people in a lunch line and need to ensure each person gets a ï¿½balancedï¿½ meal. 
  * A balanced meal is a meal where there exists the same number of food items as drink items. 
  * Someone is helping you prepare the meals and hands you food items (i.e. F) or a drink items (D) 
  * in the order specified by the items string. 
  * Return the maximum number of balanced meals you are able to create without being able to modify items.
  */
-package Greedy;
+package GreedyAndTwoPointer;
 
 /**
  * @author gaurav kabra
