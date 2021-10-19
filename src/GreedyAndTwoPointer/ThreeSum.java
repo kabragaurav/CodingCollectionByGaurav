@@ -52,6 +52,13 @@ public class ThreeSum {
                     while(j<k && nums[j] == nums[j-1]) {
                         j++;
                     }
+                    /**
+                    Or can do for k instead of j
+                    k--;
+                    while(j<k && nums[k] == nums[k+1]) {
+                        k--;
+                    }
+                    **/
                 } else if(sum < 0) {
                     j++;
                 } else {
