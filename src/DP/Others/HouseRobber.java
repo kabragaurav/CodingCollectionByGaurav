@@ -30,14 +30,14 @@ public class HouseRobber {
         if(curr >= N) {
             return sumSoFar;
         }
-        if(mp.containsKey(""+curr+sumSoFar)) {
-            return mp.get(""+curr+sumSoFar);
+        if(mp.containsKey("" + curr + "-" + sumSoFar)) {
+            return mp.get("" + curr + "-" + sumSoFar);
         }
         int ans =  Math.max(
                 getMaxRob(nums, curr+2, N, sumSoFar+nums[curr]),
                 getMaxRob(nums, curr+1, N, sumSoFar)
         );
-        mp.put(""+curr+sumSoFar, ans);
+        mp.put("" + curr + "-" + sumSoFar, ans);          // "-" is used to differentiate between "3-22" and "32-2"
         return ans;
     }
 
