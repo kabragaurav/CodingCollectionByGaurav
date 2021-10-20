@@ -63,7 +63,7 @@ public class DelNodesReturnForest {
             }
             return true;
         }
-        
+
         return deletionPossible(roots, root.left, root, true, false, to_del) ||
                 deletionPossible(roots, root.right, root, false, true, to_del);
 
