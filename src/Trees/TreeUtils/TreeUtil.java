@@ -156,4 +156,13 @@ public class TreeUtil {
 		return root;
 	}
 
+	public static void getTreePrintedInorder(TreeNode<?> root) {
+		if(null == root) {
+			return;
+		}
+		getTreePrintedInorder(root.left);
+		System.out.print(root.val + " ");
+		getTreePrintedInorder(root.right);
+	}
+
 }
