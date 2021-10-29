@@ -11,6 +11,7 @@ package Searching;
  **/
 
 import java.util.Arrays;
+import java.util.Collections;
 
 public class FirstAndLastIndices {
 
@@ -22,7 +23,7 @@ public class FirstAndLastIndices {
             if(nums[mid] == target) {
                 index = mid;
             }
-            if(nums[mid] < target) {            // this cannot be else if
+            if(nums[mid] < target) {             // this cannot be else if
                 start = mid+1;
             } else {
                 end = mid-1;

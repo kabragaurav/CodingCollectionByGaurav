@@ -16,7 +16,7 @@ public class ExcelColumnTitle {
         String ans = "";
         while(n > 0) {                      // while n is not 0
             n--;
-            ans += (char) ('A' + n%26);
+            ans += (char) ('A' + n%26);     // if we don't typecast to char, then 'A' will be promoted to int
             n /= 26;
         }
 
