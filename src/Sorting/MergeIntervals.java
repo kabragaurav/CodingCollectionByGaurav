@@ -17,8 +17,28 @@ import java.util.List;
  */
 
 public class MergeIntervals {
+
+	private static int[][] mergeEasier(int[][] intervals) {
+		// First sort intervals
+		// sort on start value, then on end value
+		Arrays.sort(intervals, (a, b) ->  a[0] == b[0] ? a[1]-b[1] : a[0]-b[0]);
+		List<int[]> ans = new ArrayList<>();
+		int start = intervals[0][0];
+		int end = intervals[0][1];
+		for(int i=1; i<intervals.length; i++) {
+			if(intervals[i][0] <= end) {
+				end = Math.max(end, intervals[i][1]);
+			} else {
+				ans.add(new int[] {start, end});
+				start = intervals[i][0];
+				end = intervals[i][1];
+			}
+		}
+		ans.add(new int[] {start, end});
+		return ans.toArray(new int[ans.size()][]);
+	}
 	
-	public static int[][] merge(int[][] intervals) {
+	private static int[][] merge(int[][] intervals) {
 		/**
 		 * Logic:
 		 * If there is single interval, we return that.
@@ -86,6 +106,10 @@ public class MergeIntervals {
 		System.out.println(Arrays.deepToString(merge(arr1)));
 		System.out.println(Arrays.deepToString(merge(arr2)));
 		System.out.println(Arrays.deepToString(merge(arr3)));
+
+		System.out.println(Arrays.deepToString(mergeEasier(arr1)));
+		System.out.println(Arrays.deepToString(mergeEasier(arr2)));
+		System.out.println(Arrays.deepToString(mergeEasier(arr3)));
 	}
 
 }
