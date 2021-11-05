@@ -35,7 +35,9 @@ public class MinInRotatedSortedArr {
         return -1;
     }
 
+    // driver - main method
     public static void main(String[] args) {
+        // TESTCASES
         System.out.println(findMin(new int[] {1}));
         System.out.println(findMin(new int[] {11,13,15,17}));
         System.out.println(findMin(new int[] {15,17,11,13}));
