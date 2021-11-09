@@ -156,6 +156,36 @@ public class TreeUtil {
 		return root;
 	}
 
+
+	public static TreeNode getDummyBinaryTree3() {
+
+		/**
+		 * Make this BST: [0,0,0,0,null,null,0,null,null,null,0]
+		 * 					   0
+		 * 					 /   \
+		 * 					0     0
+		 * 				   /	   \
+		 * 				  0         0
+		 * 				             \
+		 * 				              0
+		 */
+
+		TreeNode<Integer> zero1 = getTreeNode(0);
+		TreeNode<Integer> zero2 = getTreeNode(0);
+		TreeNode<Integer> zero3 = getTreeNode(0);
+		TreeNode<Integer> zero4 = getTreeNode(0);
+		TreeNode<Integer> zero5 = getTreeNode(0);
+		TreeNode<Integer> zero6 = getTreeNode(0);
+
+		zero1.left = zero2;
+		zero1.right = zero3;
+		zero2.left = zero4;
+		zero3.right = zero5;
+		zero5.right = zero6;
+
+		return zero1;
+	}
+
 	public static void getTreePrintedInorder(TreeNode<?> root) {
 		if(null == root) {
 			return;

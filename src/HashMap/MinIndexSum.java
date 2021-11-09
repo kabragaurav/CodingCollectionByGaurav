@@ -5,6 +5,7 @@
  * If there is a choice tie between answers, output all of them with no order requirement.
  * You could assume there always exists an answer.
  */
+
 package HashMap;
 
 import java.util.HashMap;

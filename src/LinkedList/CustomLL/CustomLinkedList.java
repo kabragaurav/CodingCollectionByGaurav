@@ -1,10 +1,7 @@
-package LinkedList.LinkedList;
-
-import java.util.LinkedList;
-import java.util.List;
+package LinkedList.CustomLL;
 
 /**
- * An implementation of LinkedList
+ * An custom implementation for Linked List (LL)
  * 
  * @author gaurav kabra
  * @since 9 Nov 2021
@@ -51,18 +48,21 @@ public class CustomLinkedList<T> {
         return head;
     }
 
-    // print linked list
-    public void displayLinkedList(Node head) {
+    // print as well as return printed form of linked list
+    public String displayLinkedList(Node head) {
         if(null == head) {
             System.out.println(EMPTY_LIST_MSG);
-            return;
+            return "";
         }
         Node t = head;
+        String whole = "";
         while(null != t.next) {
-            System.out.print(t.value + "->");
+            whole += t.value + "->";
             t = t.next;
         }
-        System.out.println(t.value);
+        whole += t.value;
+        System.out.println(whole);
+        return whole;
     }
     
 }

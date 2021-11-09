@@ -10,7 +10,8 @@ package LinkedList;
  * @since 9  Nov 2021
  **/
 
-import LinkedList.LinkedList.CustomLinkedList;
+import LinkedList.CustomLL.CustomLinkedList;
+import LinkedList.CustomLL.CustomLinkedList.Node;
 
 public class IntersectionOfLists {
 
@@ -23,9 +24,9 @@ public class IntersectionOfLists {
      * TC : O(N) since we traverse lists once
      * SC : O(1)
      */
-    private static CustomLinkedList.Node getIntersectionNode(CustomLinkedList.Node headA, CustomLinkedList.Node headB) {
+    private static Node getIntersectionNode(Node headA, Node headB) {
         int l1 = 0, l2 = 0;
-        CustomLinkedList.Node t = headA;
+        Node t = headA;
         while(t != null) {
             l1++;
             t = t.next;
@@ -55,22 +56,42 @@ public class IntersectionOfLists {
     // driver - main method
     public static void main(String[] args) {
         // TESTCASES
-        LinkedList.LinkedList.CustomLinkedList<Integer> obj = new CustomLinkedList<Integer>();
-        CustomLinkedList.Node<Integer> headA = obj.createLinkedList(2,6,4);
-        CustomLinkedList.Node<Integer> headB = obj.createLinkedList(5, 7);
+
+        /*
+                    2 -> 6 -> 4
+                    5 -> 7
+         */
+        CustomLinkedList<Integer> obj = new CustomLinkedList<Integer>();
+        Node<Integer> headA = obj.createLinkedList(2,6,4);
+        Node<Integer> headB = obj.createLinkedList(5, 7);
         obj.displayLinkedList(getIntersectionNode(headA, headB));
 
-        CustomLinkedList.Node<Integer> node1 = obj.createLinkedList(1);
-        CustomLinkedList.Node<Integer> node2 = obj.createLinkedList(2);
-        CustomLinkedList.Node<Integer> node3 = obj.createLinkedList(3);
-        CustomLinkedList.Node<Integer> node4 = obj.createLinkedList(4);
-        CustomLinkedList.Node<Integer> node5 = obj.createLinkedList(5);
-        CustomLinkedList.Node<Integer> node6 = obj.createLinkedList(6);
+        /*
+                    1 -> 2 -> 3 -> 5 -> 6
+                                   ^
+                                   |
+                                   4
+         */
+        Node<Integer> node1 = obj.createLinkedList(1);
+        Node<Integer> node2 = obj.createLinkedList(2);
+        Node<Integer> node3 = obj.createLinkedList(3);
+        Node<Integer> node4 = obj.createLinkedList(4);
+        Node<Integer> node5 = obj.createLinkedList(5);
+        Node<Integer> node6 = obj.createLinkedList(6);
         node1.next = node2;
         node2.next = node3;
         node3.next = node5;
         node4.next = node5;
         node5.next = node6;
+        obj.displayLinkedList(getIntersectionNode(node1, node4));
+
+        /*
+                    1 -> 2 -> 3 -> 5 -> 6
+                                        ^
+                                        |
+                                        4
+         */
+        node4.next = node6;
         obj.displayLinkedList(getIntersectionNode(node1, node4));
     }
 }
