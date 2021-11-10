@@ -22,6 +22,8 @@ public class SubarraySumK {
      *
      * To know only contiguous subarray, we use for loop and keep forwarding i.
      *
+     * Since negative numbers can be there, we don't want to use sliding window here.
+     *
      * TC : O(N)
      * SC : O(N) due to map.
      */
