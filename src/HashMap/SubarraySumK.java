@@ -16,7 +16,7 @@ public class SubarraySumK {
 
     /**
      * Logic:
-     * If we have sum of all previous numbers at two indices of an array,
+     * If we have prefix sum and choose two indices of an array,
      * and let right one is S1 and left one is S2.
      * If S1-S2 = k, then we have a subarray between these two indices that sum to k.
      *
