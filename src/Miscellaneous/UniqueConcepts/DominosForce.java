@@ -29,7 +29,7 @@ public class DominosForce {
     /**
      * Logic:
      * We take right direction as positive and left as negative.
-     * Scanning from left to right, our force is always >=0. It is N for first R, then it decreases by 1 and on 'L' it becomes 0.
+     * Scanning from left to right, our force is always >=0. It is N for every R, then it decreases by 1 for '.' and on 'L' it becomes 0.
      * Opposite applies while scanning right to left.
      * For some domino force[i], if the forces are equal, then the answer is '.'.
      * Otherwise, the answer is implied by whichever force is stronger. (if positive, 'R'. Else 'L')
