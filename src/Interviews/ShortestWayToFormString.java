@@ -3,6 +3,7 @@
  *
  * Given two strings src and dest, determine the minimum number of
  * concatenations of subsequences of src to form dest.
+ * If not possible, return -1.
  */
 package Interviews;
 
@@ -13,6 +14,14 @@ package Interviews;
 
 public class ShortestWayToFormString {
 
+    /**
+     * Logic:
+     * The key point is to form dest, we should have every character in src.
+     * If not, return -1.
+     *
+     * TC : O(M*N) where M = len(dest), N = len(src)
+     * SC : O(M) due to subseq
+     */
     private static int shortestWay(String src, String dest) {
         int min = 0;
         String remaining = dest;
@@ -25,7 +34,6 @@ public class ShortestWayToFormString {
                     subseq.append(remaining.charAt(j++));
                 }
             }
-
             if(subseq.length() == 0) {
                 return -1;
             }
@@ -36,7 +44,9 @@ public class ShortestWayToFormString {
         return min;
     }
 
+    // driver - main method
     public static void main(String[] args) {
+        // TESTCASES
         System.out.println(shortestWay("abc", "abcbc"));
         System.out.println(shortestWay("lan", "allan"));
     }

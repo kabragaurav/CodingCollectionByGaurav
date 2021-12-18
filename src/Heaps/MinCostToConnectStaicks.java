@@ -21,12 +21,19 @@ public class MinCostToConnectStaicks {
     // delete : O(logN)
     // min : O(1)
     private static int connectSticks(int[] sticks) {
-        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
 
+        /**
+         * Logic:
+         * For the overall cost to be minimum, every time we combine two sticks, they should be smallest two among all available sticks.
+         * For this we use min heap.
+         *
+         * TC : O(logN) for one insertion. For N insertions, O(NlogN)
+         * SC : O(N) as min heap max size is N
+         */
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         for(int stick : sticks) {
             minHeap.add(stick);
         }
-
         int cost = 0;
         int newLen = 0;
 
@@ -38,7 +45,9 @@ public class MinCostToConnectStaicks {
         return cost;
     }
 
+    // driver - main method
     public static void main(String[] args) {
+        // TESTCASES
         System.out.println(connectSticks(new int[] {2,4,3}));
         System.out.println(connectSticks(new int[] {1,8,3,5}));
     }
