@@ -8,7 +8,7 @@
     </content>
     <orderEntry type="jdk" jdkName="JavaSE-14" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
           <root url="jar://$MAVEN_REPOSITORY$/org/jetbrains/annotations/20.1.0/annotations-20.1.0.jar!/" />
@@ -20,7 +20,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/commons-lang3-3.12.0.jar!/" />
+          <root url="jar://$USER_HOME$/.jdks/commons-lang3-3.12.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
