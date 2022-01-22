@@ -78,7 +78,7 @@ public class Trie {
         return true;
     }
 
-
+    /**
 
     // for testing only
     public static void main (String[] args) {
@@ -110,6 +110,8 @@ public class Trie {
         System.out.println(head.search("techiedelight"));   // true
         System.out.println("--------------------------\n");
     }
+
+    **/
 
 
 
