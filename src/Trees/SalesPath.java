@@ -28,16 +28,15 @@ import Trees.TreeUtils.Node;
 
 public class SalesPath {
 
-    private static int minCost(Node root, int money, String path) {
+    private static int minCost(Node root, int money) {
         if(root == null) {
             return money;
         }
         money += root.cost;
-        path += root.cost + " ";
         if(root.children != null) {
             int min = Integer.MAX_VALUE;
             for (Node child : root.children) {
-                min = Math.min(min, minCost(child, 0, path));
+                min = Math.min(min, minCost(child, 0));
             }
             money += min;
         }
@@ -46,7 +45,7 @@ public class SalesPath {
 
     // wrapper
     private static int getCheapestCost(Node rootNode, String path) {
-        return minCost(rootNode, 0, path);
+        return minCost(rootNode, 0);
     }
 
     // with min cost, if we want all paths with that cost
