@@ -12,35 +12,17 @@ public class Node {
     public int cost;           // value in node
     public Node[] children;
     public Node parent;
+    public boolean isVisited;
 
-    public int getCost() {
-        return cost;
-    }
-
-    public void setCost(int cost) {
-        this.cost = cost;
-    }
-
-    public Node[] getChildren() {
-        return children;
-    }
-
-    public void setChildren(Node[] children) {
-        this.children = children;
-    }
-
-    public Node getParent() {
-        return parent;
-    }
-
-    public void setParent(Node parent) {
-        this.parent = parent;
+    public Node() {
+        this.children = null;
+        this.parent = null;
+        this.isVisited = false;
     }
 
     public Node(int cost) {
+        this();
         this.cost = cost;
-        children = null;
-        parent = null;
     }
 
     /*
@@ -80,6 +62,52 @@ public class Node {
         _one.children = new Node[] {__one};
 
         return root;
+    }
+
+    /**
+                   0
+                /   |  \
+            3--4    2 -- 1
+              / \   /
+             6    5
+
+            7
+     */
+    public static Node[] getGraph1() {
+        Node zero = new Node();
+        Node one = new Node();
+        Node two = new Node();
+        Node three = new Node();
+        Node four = new Node();
+        Node five = new Node();
+        Node six = new Node();
+        Node seven = new Node();
+
+        zero.children = new Node[] {
+                four, two, one
+        };
+        one.children = new Node[] {
+                zero, two
+        };
+        two.children = new Node[] {
+                zero, one, five
+        };
+        three.children = new Node[] {
+                four
+        };
+        four.children = new Node[] {
+                zero, three, five, six
+        };
+        five.children = new Node[] {
+                four, two
+        };
+        six.children = new Node[] {
+                four
+        };
+
+        return new Node[] {
+                zero, one, two, three, four, five, six, seven
+        };
     }
 
 }

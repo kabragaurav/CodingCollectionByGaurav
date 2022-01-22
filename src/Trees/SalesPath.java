@@ -78,3 +78,74 @@ public class SalesPath {
         }
     }
 }
+
+
+/**
+ * Solution by peer from Pramp
+ *
+ * def get_cheapest_cost(rootNode):
+ *
+ *   # running min over the leaves
+ *   res = float("inf")
+ *   s = [[rootNode, 0]]
+ *
+ *   while s:
+ *
+ *     node, sm = s.pop()
+ *
+ *     sm += node.cost
+ *
+ *     if node.children:
+ *       for child in node.children:
+ *         s.append([child, sm])
+ *     # leaf
+ *     else:
+ *       res = min(res, sm)
+ *
+ *   return res
+ *
+ * ##########################################
+ * # Use the helper code below to implement #
+ * # and test your function above           #
+ * ##########################################
+ *
+ * # stack
+ * # [node, running sum before visiting node]
+ *
+ * # [root, 0]
+ * # [5, 0], [3, 0], [6, 0]
+ * #
+ *
+ * # A node
+ * class Node:
+ *
+ *   # Constructor to create a new node
+ *   def __init__(self, cost):
+ *     self.cost = cost
+ *     self.children = []
+ *     self.parent = None
+ *
+ * l1 = [Node(0)]
+ * l2 = [Node(5), Node(3), Node(6)]
+ * l3 = [Node(4), Node(2), Node(0), Node(1), Node(5)]
+ * l4 = [Node(1), Node(10)]
+ * l5 = [Node(1)]
+ *
+ * # 0 -> 5 3 6
+ * l1[0].children = l2
+ * # 5 -> 4
+ * l2[0].children = l3[:1]
+ * # 3 -> 2 0
+ * l2[1].children = l3[1:3]
+ * # 6 -> 1 5
+ * l2[2].children = l3[3:5]
+ * # 2 -> 1
+ * l3[1].children = l4[:1]
+ * # 0 -> 10
+ * l3[2].children = l4[1:2]
+ * # 1 -> 1
+ * l4[0].children = l5
+ *
+ *
+ * print(get_cheapest_cost(l1[0]))
+ */
