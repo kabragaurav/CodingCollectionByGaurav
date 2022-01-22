@@ -11,6 +11,7 @@ import java.util.List;
  * Supports:
  *  Insert
  *  Search
+ *  Delete
  *
  * @author gkabra
  * @since 22-01-2022 Sat
@@ -64,7 +65,20 @@ public class Trie {
         return currentNode.isValidWord;
     }
 
-    /**
+    public boolean delete(String word) {
+        Trie currentNode = this;
+
+        for(char ch : word.toCharArray()) {
+            currentNode = currentNode.children.get(ch-'a');
+            if(currentNode == null) {
+                return true;        // not present, so no need for deletion
+            }
+        }
+        currentNode.isValidWord = false;
+        return true;
+    }
+
+
 
     // for testing only
     public static void main (String[] args) {
@@ -74,20 +88,29 @@ public class Trie {
         head.insert("techie");
         head.insert("techi");
         head.insert("tech");
-
-        System.out.println(head.search("tech"));            // true
-        System.out.println(head.search("techi"));           // true
-        System.out.println(head.search("techie"));          // true
-        System.out.println(head.search("techiedelight"));   // false
+        validate(head);
 
         head.insert("techiedelight");
+        validate(head);
 
+        head.delete("techi");
+        validate(head);
+
+        head.insert("techi");
+        head.delete("techno");      // that does not exist
+        validate(head);
+        System.out.println(head.search("techno"));   // true
+
+    }
+
+    private static void validate(Trie head) {
         System.out.println(head.search("tech"));            // true
         System.out.println(head.search("techi"));           // true
         System.out.println(head.search("techie"));          // true
         System.out.println(head.search("techiedelight"));   // true
+        System.out.println("--------------------------\n");
     }
 
-     **/
+
 
 }
