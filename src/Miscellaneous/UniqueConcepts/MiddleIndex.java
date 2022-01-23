@@ -16,7 +16,7 @@ public class MiddleIndex {
     /**
      * Logic:
      * One way to solve the problem is to find for each number, sum of all left elements and sum of all right elements.
-     * If left sum equals right summ, return index of that number.
+     * If left sum equals right sum, return index of that number.
      * But it will be O(N) in TC (for left and right sum) and O(N) in SC (for storing sums)
      *
      * Efficient way is shown below.
