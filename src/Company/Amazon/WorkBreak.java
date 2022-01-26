@@ -50,9 +50,8 @@ public class WorkBreak {
         if(s.length() == 1) {
             return wordDict.contains(Character.toString(s.toCharArray()[0]));
         }
-        for(String word : wordDict) {
-            st.add(word);
-        }
+
+        st.addAll(wordDict);
 
         return feasible(s, 0, s.length());
     }
@@ -73,6 +72,12 @@ public class WorkBreak {
 
         System.out.println(wordBreak("a", new ArrayList<>() {{
             add("b");
+        }}));
+
+        System.out.println(wordBreak("leetcode", new ArrayList<>() {{
+            add("lee");
+            add("leet");
+            add("code");
         }}));
 
     }

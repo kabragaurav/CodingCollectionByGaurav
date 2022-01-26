@@ -6,6 +6,7 @@
 package Company.Pramp;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 /**
  * @author gkabra
@@ -54,6 +55,9 @@ public class MoveZerosToEnd {
     }
 
     public static void main(String[] args) {
+
+        Integer[] num = Arrays.stream(new int[] {1})
+                .boxed().toArray(Integer[]::new);
         // TESTCASES
         Arrays.stream(moveZerosToEnd(new int[] {0,1,2,3,0,0,1,1,6,4,1})).forEach(x -> System.out.print(x + " "));
         System.out.println();
@@ -71,6 +75,9 @@ public class MoveZerosToEnd {
         System.out.println();
 
         Arrays.stream(moveZerosToEnd(new int[] {3,0,0})).forEach(x -> System.out.print(x + " "));
+        System.out.println();
+
+        Arrays.stream(moveZerosToEnd(new int[] {3,2,4})).forEach(x -> System.out.print(x + " "));
         System.out.println();
 
 
@@ -91,6 +98,9 @@ public class MoveZerosToEnd {
         System.out.println();
 
         Arrays.stream(moveZerosToEndOptimal(new int[] {3,0,0})).forEach(x -> System.out.print(x + " "));
+        System.out.println();
+
+        Arrays.stream(moveZerosToEndOptimal(new int[] {3,2,4})).forEach(x -> System.out.print(x + " "));
         System.out.println();
     }
 

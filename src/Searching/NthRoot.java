@@ -20,7 +20,7 @@
  *                 midN *= mid;
  *             }
  *
- *             if(midN <= x+0.001 && midN >= x-0.001) {
+ *             if(midN <= x+0.001 && midN >= x-0.001) {         // she put || instead of &&
  *                 return mid;
  *             } else if (midN < x) {
  *                 low = mid;
@@ -105,7 +105,7 @@ public class NthRoot {
         double high = x;
         final double eps = 0.001;
 
-        while(eps < high-low) {
+        while(eps < high-low) {         // shrink search space till less than eps
             double mid = low + (high-low)/2;
             if(Math.pow(mid, n) < x) {
                 low = mid;

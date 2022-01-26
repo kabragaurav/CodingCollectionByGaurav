@@ -11,6 +11,7 @@ import LinkedList.CustomLL.CustomLinkedList.Node;
 
 public class CopyListWithRandomPointer {
 
+    @SuppressWarnings("rawtypes")
     private static Node getClone(Node node) {
         return new Node(node.value);
     }
