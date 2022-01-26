@@ -12,29 +12,36 @@ package Searching;
 
 public class NthRoot {
 
-    // TC : O(logx)
-    // SC : O(1)
-    private static double nThRoot(double x, double n) {
-        double left = 0;
-        double right = x;
-        double mid = left + (right-left)/2;
+    /**
+     * Logic:
+     * Since search space is monotonically increasing from 1^n to x^n. So use binary search here.
+     *
+     * TC : If eps is upto d decimal places (say d=1 so eps=0.1). Then between 1 to x there will be x * 10^d real numbers
+     *      (here since eps=0.1 and let x=27 then 1, 1.1, 1.2, ..., 26.9, 27)
+     *
+     *      Math.pow() in Java is O(1)
+     *      So O(1) * O(log(x10^d))
+     * SC : O(1)
+     *
+     * Best video: https://tinyurl.com/nth-root
+     */
+    static double nThRoot(double x, int n) {
+        // nth root of x
+        double low = 1;
+        double high = x;
+        final double eps = 0.001;
 
-        /**
-         * since lowerBound<root<upperBound, then the true error |root-approxRoot|,
-         * satisfies |root-approxRoot| < (approxRoot - lowerBound)
-         * so it is indeed enough to check when the value on the right side is lower than 0.001
-         */
-        while(mid-left >= 0.001) {
-            if(Math.pow(mid, n) > x) {
-                right = mid;
-            } else if(Math.pow(mid, n) < x) {
-                left = mid;
-            } else {
-                return mid;
+        while(eps < high-low) {
+            double mid = low + (high-low)/2;
+            if(Math.pow(mid, n) < x) {
+                low = mid;
+            } else  {
+                high = mid;
             }
-            mid = left + (right-left)/2;        // order matters E.g. (27, 3)
         }
-        return mid;
+
+        return low + (high-low)/2;
+
     }
 
     // driver - main method

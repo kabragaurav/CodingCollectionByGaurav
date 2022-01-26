@@ -20,10 +20,23 @@ public class CustomLinkedList<T> {
     public static class Node<T> {
         public T value;
         public Node next;
+        public Node random;
+
+        public Node(T value) {
+            this.value = value;
+            this.next = null;
+            this.random = null;
+        }
         
-        Node(T value, Node next) {
+        public Node(T value, Node next) {
             this.value = value;
             this.next = next;
+            this.random = null;
+        }
+        public Node(T value, Node next, Node random) {
+            this.value = value;
+            this.next = next;
+            this.random = random;
         }
     }
 

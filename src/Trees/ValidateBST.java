@@ -1,5 +1,6 @@
 /**
- * Given a binary tree, containing unique values, determine if it is a strict valid binary search tree.
+ * Given a binary tree, containing unique values, determine if it is a strict valid binary
+ * search tree.
  */
 package Trees;
 
@@ -12,12 +13,33 @@ import Trees.TreeUtils.TreeUtil;
  */
 
 public class ValidateBST {
+
+	/**
+	 Other easy solution is using inorder traversal and check if it is sorted strictly.
+
+	 List<Integer> ls = new ArrayList<>();
+
+	 private void inorder(TreeNode root) {
+		 if(root == null) {
+		 return;
+		 }
+		 inorder(root.left);
+		 ls.add(root.val);
+		 inorder(root.right);
+	 }
+
+	 public boolean isValidBST(TreeNode root) {
+		 inorder(root);
+		 return IntStream.range(0, ls.size()-1).noneMatch(i -> ls.get(i) >= ls.get(i+1));
+	 }
+
+	 */
     
 	private boolean isStrictBST(TreeNode<Long> root, long minVal, long maxVal) {
 		/**
 		 * Logic:
-		 * All values to the left of a given node are less than the current node’s value, 
-		 * all values to the right of a given node are greater than the current node’s value, 
+		 * All values to the left of a given node are less than the current nodeï¿½s value, 
+		 * all values to the right of a given node are greater than the current nodeï¿½s value, 
 		 * and both the left and right subtrees of a given node must also be BSTs.
 		 * 
 		 * Time Complexity: O(N) since in worst case, tree can be skewed
