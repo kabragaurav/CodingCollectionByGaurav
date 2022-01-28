@@ -19,6 +19,8 @@ import java.util.Stack;
 public class TreeToLL {
 
 
+    // TC : O(N)
+    // SC : O(N)
     private static void efficientFlatten(TreeNode root) {
         if(root == null) {
             return;
