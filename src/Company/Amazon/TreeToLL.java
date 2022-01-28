@@ -9,12 +9,39 @@ package Company.Amazon;
 import Trees.TreeUtils.TreeNode;
 import Trees.TreeUtils.TreeUtil;
 
+import java.util.Stack;
+
 /**
  * @author gkabra
  * @since 28-01-2022 Fri
  **/
 
 public class TreeToLL {
+
+
+    private static void efficientFlatten(TreeNode root) {
+        if(root == null) {
+            return;
+        }
+        Stack<TreeNode> stk = new Stack<>();
+        stk.push(root);
+
+        while(!stk.isEmpty()) {
+            TreeNode pop = stk.pop();
+
+            if(pop.right != null) {
+                stk.push(pop.right);
+            }
+            if(pop.left != null) {
+                stk.push(pop.left);
+            }
+
+            pop.left = null;
+            if(!stk.isEmpty()) {        // to prevent EmptyStackException
+                pop.right = stk.peek();
+            }
+        }
+    }
 
     /**
      * Logic:
@@ -48,6 +75,10 @@ public class TreeToLL {
         // TESTCASE
         TreeNode root = TreeUtil.getDummyBinarySearchTree();
         flatten(root);
+        TreeUtil.getTreePrintedInorder(root);
+
+        root = TreeUtil.getDummyBinarySearchTree();
+        efficientFlatten(root);
         TreeUtil.getTreePrintedInorder(root);
     }
 
