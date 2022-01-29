@@ -17,8 +17,11 @@
  */
 package Trees;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
+
 import Trees.TreeUtils.Node;
 
 /**
@@ -44,7 +47,7 @@ public class SalesPath {
     }
 
     // wrapper
-    private static int getCheapestCost(Node rootNode, String path) {
+    private static int getCheapestCost(Node rootNode) {
         return minCost(rootNode, 0);
     }
 
@@ -66,13 +69,56 @@ public class SalesPath {
         return ls;
     }
 
+
+    // METHOD 2
+
+    private static class QNode {
+        int sum;
+        Node node;
+
+        QNode(Node node, int sum) {
+            this.node = node;
+            this.sum = sum;
+        }
+    }
+
+    // TC : O(N)
+    // SC : O(N)
+    private static int getCheapestCostEfficient(Node root) {
+        Queue<QNode> q = new ArrayDeque<>();
+        QNode qn = new QNode(root, 0);
+        q.offer(qn);
+        int ans = Integer.MAX_VALUE;
+
+        while(!q.isEmpty()) {
+            QNode pop = q.poll();
+            Node node = pop.node;
+            int sum = pop.sum + node.cost;
+            if(node.children == null) {    // leaf
+                ans = Math.min(ans, sum);
+            } else {
+                for(Node child : node.children) {
+                    q.offer(new QNode(child, sum));
+                }
+            }
+        }
+        return ans;
+    }
+
     // driver - main method
     public static void main(String[] args) {
         // TESTCASE
         Node root = Node.getANonBinaryTree();
-        int money = getCheapestCost(root, "");
+        int money = getCheapestCost(root);
         System.out.println(money);
         List<String> ls = findAllPathWithSum(root, money, 0, new ArrayList<String>(), "");
+        for(String s : ls) {
+            System.out.println(s);
+        }
+
+        money = getCheapestCostEfficient(root);
+        System.out.println(money);
+        ls = findAllPathWithSum(root, money, 0, new ArrayList<String>(), "");
         for(String s : ls) {
             System.out.println(s);
         }
