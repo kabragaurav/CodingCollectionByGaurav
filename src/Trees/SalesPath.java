@@ -103,6 +103,27 @@ public class SalesPath {
             }
         }
         return ans;
+
+        /**
+         * Apprach by Santosh Sahu
+         */
+        /*
+        static int getCheapestCost(Node rootNode) {
+            // your code goes here
+            if(rootNode == null)
+                return 0;
+
+            if(rootNode.children == null)
+                return rootNode.cost;
+
+            int min = Integer.MAX_VALUE;
+            for(int i=0; i<rootNode.children.length; i++){
+                int res = getCheapestCost(rootNode.children[i]);
+                min = Math.min(min, res);
+            }
+            return min+rootNode.cost;
+        }
+    } */
     }
 
     // driver - main method
