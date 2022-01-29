@@ -15,8 +15,8 @@ public class LongestIncreasingSubsequence {
             return cache[curr][prevIdx+1];
         }
         int with = 0, without = 0;
-        if(prevIdx == -1 || nums[curr] > nums[prevIdx]) {
-            with = 1 + helper(nums, curr+1, N, curr, cache);
+        if(prevIdx == -1 || nums[curr] > nums[prevIdx]) {                   // if condition is useful to add in general
+            with = 1 + helper(nums, curr+1, N, curr, cache);            // in general take out value to be added. E.g. 1 here
         }
         without = helper(nums, curr+1, N, prevIdx, cache);
         return cache[curr][prevIdx+1] = Math.max(with, without);

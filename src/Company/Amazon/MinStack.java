@@ -13,19 +13,17 @@ import java.util.Stack;
 
 public class MinStack {
 
+    // Maintain two stacks
     private static Stack<Integer> stk;
     private static Stack<Integer> helper;
 
-    public MinStack() {
-        stk = new Stack<>();
-        helper = new Stack<>();
-    }
-
     /**
+     * Logic:
+     *
      * 1) push x to the first stack (the stack with actual elements)
      * 2) compare x with the top element of the second stack (the auxiliary stack). Let the top element be y.
-     * …..a) If x is smaller than y then push x to the auxiliary stack.
-     * …..b) If x is greater than y then push y to the auxiliary stack.
+     *  a) If x is smaller than y then push x to the auxiliary stack.
+     *  b) If x is greater than y then push y to the auxiliary stack.
      */
     private static void push(int val) {
         stk.push(val);
@@ -41,9 +39,13 @@ public class MinStack {
         }
     }
 
+
     /**
+     * Logic:
+     *
      * 1) pop the top element from the auxiliary stack.
      * 2) pop the top element from the actual stack and return it.
+     *
      * Step 1 is necessary to make sure that the auxiliary stack is also updated for future operations.
      */
     private static void pop() {

@@ -10,22 +10,28 @@ import Trees.TreeUtils.TreeUtil;
 
 public class LowestCommonAncestorBinaryTree {
 
-    private static TreeNode helper(TreeNode<Integer> root, TreeNode<Integer> p, TreeNode<Integer> q) {
-        if((p.val < root.val && root.val < q.val) ||
-                p.val > root.val && root.val > q.val) {
-            return root;
-        }
-        if(p.val < root.val && q.val < root.val) {
-            return helper(root.left, p, q);
-        }
-        return helper(root.right, p, q);
-    }
-
+    /**
+     * Logic:
+     *
+     *      Best video: https://tinyurl.com/lowest-common-ancestor-bt
+     */
     private static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if(root == p || root == q) {
+        if(root == null || root == p || root == q) {
             return root;
         }
-        return helper(root, p, q);
+
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+
+        // if any one is null, return other
+        if(left == null) {
+            return right;
+        }
+        if(right == null) {
+            return left;
+        }
+        // else return root
+        return root;
     }
 
     // driver - main method

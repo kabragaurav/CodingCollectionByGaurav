@@ -1,5 +1,5 @@
 /**
- * Given an array, rotate the array to the right by k steps, where k is non-negative.
+ * Given an array, rotate the array anti-clockwise by k steps, where k is non-negative.
  */
 package Company.Amazon;
 
@@ -12,11 +12,13 @@ import java.util.Arrays;
 
 public class RotateArray {
 
+    // TC : O(N)
+    // SC : O(N)
     private static void rotate(int[] nums, int k) {
         int N = nums.length;
         k = k%N;
-        int[] first = Arrays.copyOfRange(nums, 0, N-k);
-        int[] last = Arrays.copyOfRange(nums, N-k, N);
+        int[] first = Arrays.copyOfRange(nums, 0, N-k);      // i.e. N-k elements
+        int[] last = Arrays.copyOfRange(nums, N-k, N);          // i.e. k elements
 
         for(int i=0; i<last.length; i++) {
             nums[i] = last[i];
