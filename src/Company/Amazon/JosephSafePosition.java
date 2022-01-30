@@ -13,6 +13,8 @@ package Company.Amazon;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * @author gkabra
@@ -25,19 +27,18 @@ public class JosephSafePosition {
         if(ls.size() == 1) {
             return ls.get(0);
         }
-        int killed = (curr+k) % ls.size();
+        int killed = (curr+k) % ls.size();          // mod since people are in circle
         ls.remove(killed);
         return helper(ls, k, killed);
     }
 
     // TC : O(N)
-    // SC : O(1)
+    // SC : O(N)
     private static int safePos(int n, int k) {
-        ArrayList<Integer> ls = new ArrayList<>();
-        for(int i=1; i<=n; i++) {
-            ls.add(i);
-        }
-        k--;
+        List<Integer> ls = IntStream.rangeClosed(1, n)
+                                    .boxed()
+                                    .collect(Collectors.toList());
+        k--;        // 0-based index
         return helper(ls, k, 0);
     }
 

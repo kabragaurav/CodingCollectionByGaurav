@@ -15,12 +15,12 @@ public class ZeroSumSubarray {
 
     /**
      * Logic:
-     * If you see a sum again, then the array traversed after first one has total sum = 0.
+     * If you see a sum again, then the array traversed after first sum has total sum = 0.
      *
      * TC : O(N)
      * SC : O(N)
      */
-    private static long findSubarray(long[] arr ,int n) {
+    private static long findSubarray(long[] arr) {
         HashMap<Integer, Integer> mp = new HashMap<>();
         int sum = 0;
         long count = 0;
@@ -33,14 +33,14 @@ public class ZeroSumSubarray {
                 mp.put(sum, 1);
             }
         }
-        return count+mp.getOrDefault(0, 0);     // include 0's as well
+        return count + mp.getOrDefault(0, 0);     // include single 0's as well
     }
 
     // driver - main method
     public static void main(String[] args) {
         // TESTCASES
-        System.out.println(findSubarray(new long[] {0,0,5,5,0,0}, 6));
-        System.out.println(findSubarray(new long[] {6,-1,-3,4,-2,2,4,6,-12,-7}, 10));
+        System.out.println(findSubarray(new long[] {0,0,5,5,0,0}));
+        System.out.println(findSubarray(new long[] {6,-1,-3,4,-2,2,4,6,-12,-7}));
     }
 
 }

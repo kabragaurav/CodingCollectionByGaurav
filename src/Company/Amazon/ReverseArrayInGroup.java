@@ -23,10 +23,8 @@ public class ReverseArrayInGroup {
             int i=first, j = last;
             while(i <= j) {
                 int t = arr.get(i);
-                arr.set(i, arr.get(j));
-                arr.set(j, t);
-                i++;
-                j--;
+                arr.set(i++, arr.get(j));
+                arr.set(j--, t);
             }
             first = last+1;
             last = Math.min(last+k, n-1);
@@ -40,7 +38,7 @@ public class ReverseArrayInGroup {
             add(1); add(2);
             add(3); add(4);
         }};
-        reverseInGroups(arr, 4, 2);
+        reverseInGroups(arr, 4, 3);
         arr.stream().forEach(x -> System.out.println(x));
     }
 
