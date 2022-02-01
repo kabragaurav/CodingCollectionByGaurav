@@ -16,10 +16,10 @@ import java.util.LinkedHashMap;
 public class LRUCache {
 	/**
 	 * Logic:
-	 * We will use LinkedHashMap because it maintains insertion order. 
+	 * We will use LinkedHashMap which is same as HashMap except it maintains insertion order.
 	 * So it will be easy to know and remove most stale entry.
 	 * If we use TreeMap, it will keep sorting on basis of keys and hence order of insertion is disrupted
-	 * Same goes for HashMap which does not retail order and may change order based on each insertion
+	 * Same goes for HashMap which does not retain order and may change order based on each insertion
 	 * 
 	 * See this for more: https://tinyurl.com/map-implementations
 	 * 
@@ -27,14 +27,12 @@ public class LRUCache {
 	private LinkedHashMap<Integer, Integer> map;
     private int capacity;
     
-    LRUCache(int cap)
-    {
+    LRUCache(int cap) {
         map = new LinkedHashMap<>();
         capacity = cap;
     }
 
-    public int get(int key)
-    {
+    private int get(int key) {
     	/**
     	 * Logic:
     	 * We return -1 if key is not there
@@ -48,17 +46,17 @@ public class LRUCache {
         if(map.containsKey(key)) {
             int val = map.get(key);
             map.remove(key);
-            map.put(key, val);
+            map.put(key, val); // add to last as latest
             return val;
         }
         return -1;
     }
 
-    public void set(int key, int value)
-    {
+    private void set(int key, int value) {
     	/**
     	 * Logic:
-    	 * If map contains key, then there is no change in size as we will just update the value for the provided key and make it latest by moving it to last
+    	 * If map contains key, then there is no change in size as we will just update the value for the provided key
+		 * and make it latest by moving it to last
     	 * Else,
     	 * 	We need to consider size of map. If it exceeds capacity, we remove first (i.e. most stale entry)
     	 * 	And then we put the entry in map.
