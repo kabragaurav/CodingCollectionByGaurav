@@ -23,7 +23,7 @@ public class DivideArrayInSetsOfKConsecutiveNums {
      *
      * TC :
      *      insertion in pq -> O(logN)
-     *      insertion in mp -> O(1) assuming hashcode is distributing keys uniformly
+     *      insertion in mp -> O(1) assuming hashcode is distributing keys uniformly (i.e. no collision) else O(N)
      *      size of pq -> O(1)
      *      peek for pq -> O(1)
      *      containsKey for mp -> O(1)
