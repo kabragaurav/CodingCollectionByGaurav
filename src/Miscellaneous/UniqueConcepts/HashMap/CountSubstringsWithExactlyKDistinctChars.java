@@ -50,18 +50,20 @@ public class CountSubstringsWithExactlyKDistinctChars {
             return solutionForOne(S);
         }
         long ans = 0;
-        Map<Character, Integer> big = new HashMap<>();
-        Map<Character, Integer> small = new HashMap<>();
+        Map<Character, Integer> big = new HashMap<>();     // will store K elements
+        Map<Character, Integer> small = new HashMap<>();   // will store K-1 elements
 
         int i = -1;     // acquiring big
         int j = -1;     // acquiring small
         int k = -1;     // releasing from both
 
         while(true) {
+            // just to know when to break out from loop
             boolean b1 = false;
             boolean b2 = false;
             boolean b3 = false;
 
+            // first big starts acquiring
             while(i < S.length()-1) {
                 b1 = true;
                 i++;
@@ -86,8 +88,8 @@ public class CountSubstringsWithExactlyKDistinctChars {
                 }
             }
 
-            // big.size() = K
-            // small.size() == K-1
+            // now big.size() = K
+            // now small.size() == K-1
 
             while(k < j) {
                 b3 = true;
