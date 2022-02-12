@@ -7,6 +7,7 @@
 package Miscellaneous.UniqueConcepts.HashMap;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 /**
@@ -17,6 +18,29 @@ import java.util.Map;
  **/
 
 public class CountSubstringsWithExactlyKDistinctChars {
+
+    // TC : O(N^2)
+    // SC : O(N)
+    private static int countSubstrKDistinctChars2(String S, int K) {
+        HashSet<Character> st = new HashSet<>();
+        int N = S.length();
+        int ans = 0;
+
+        for(int i=0; i<N; i++) {
+            st.clear();
+            for(int j=i; j<N; j++) {
+                char ch = S.charAt(j);
+                st.add(ch);
+                if(st.size() == K) {
+                    ans++;
+                } else if(st.size() > K) {
+                    break;
+                }
+            }
+        }
+
+        return ans;
+    }
 
     private static void remove(Map<Character, Integer> mp, char ch) {
         if(mp.get(ch) == 1) {
@@ -45,7 +69,7 @@ public class CountSubstringsWithExactlyKDistinctChars {
 
     // TC : O(N)
     // SC : O(N)
-    private static long substrCount (String S, int K) {
+    private static long countSubstrKDistinctChars(String S, int K) {
         if(K == 1) {
             return solutionForOne(S);
         }
@@ -114,9 +138,12 @@ public class CountSubstringsWithExactlyKDistinctChars {
 
     // driver - main method
     public static void main(String[] args) {
-        // TESTCASE
-        System.out.println(substrCount("aba",2));
-        System.out.println(substrCount("aabcbcdbca", 2));
+        // TESTCASES
+        System.out.println(countSubstrKDistinctChars("aba",2));
+        System.out.println(countSubstrKDistinctChars("aabcbcdbca", 2));
+
+        System.out.println(countSubstrKDistinctChars2("aba",2));
+        System.out.println(countSubstrKDistinctChars2("aabcbcdbca", 2));
     }
 
 }
