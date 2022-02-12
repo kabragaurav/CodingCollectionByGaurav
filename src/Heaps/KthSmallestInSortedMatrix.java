@@ -15,6 +15,35 @@ import java.util.Arrays;
 
 public class KthSmallestInSortedMatrix {
 
+    // See KthSmallestMultiplicationTable.java
+    private static int usingBinarySearch(int[][] matrix, int k) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int left = matrix[0][0];
+        int right = matrix[m-1][n-1];
+
+        while(left < right) {
+            int mid = left + (right-left)/2;
+            int count = 0;
+
+            int j = n-1;
+            for(int i=0; i<m; i++) {
+                while(j >= 0 && matrix[i][j] > mid) {
+                    j--;
+                }
+                count += j+1;
+            }
+
+            if(count >= k) {
+                right = mid;
+            } else {
+                left = mid+1;
+            }
+        }
+
+        return left;
+    }
+
     /**
      * TC :
      *  offer() is O(logN)
@@ -46,8 +75,13 @@ public class KthSmallestInSortedMatrix {
 
     // driver - main method
     public static void main(String[] args) {
-        // TESTCASE
+        // TESTCASES
         System.out.println(kthSmallest(new int[][] {
+                {1,2},
+                {1,3}
+        }, 2));
+
+        System.out.println(usingBinarySearch(new int[][] {
                 {1,2},
                 {1,3}
         }, 2));
