@@ -25,6 +25,14 @@ public class KthSmallestInSortedMatrix {
      */
     private static int kthSmallest(int[][] matrix, int k) {
         PriorityQueue<Integer> pq = new PriorityQueue<>();
+        /*
+            add() comes from Collection.
+            offer() comes from Queue.
+            add() always returns true and throws an exception if it can't add the element
+            offer() returns false if it can't add the element.
+
+            For PriorityQueue, the two functions are synonymous.
+         */
         Arrays.stream(matrix)
                 .flatMapToInt(x -> Arrays.stream(x))
                 .forEach(a -> pq.offer(a));
