@@ -1,6 +1,6 @@
 What is Game Theory?
 - No chances/probabilities
-- No hinding unlike we do in cards
+- No hiding unlike we do in cards
 
 How two persons/entities interact.
 
