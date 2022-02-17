@@ -23,15 +23,23 @@ import java.util.Queue;
 public class SameDepthCousins {
 
     private static HashMap<Integer, Integer> mp = new HashMap<>();
+    private static boolean isXFound;
+    private static boolean isYFound;
 
+    // TC : O(N) since in worst case traverse till leaf and all nodes
+    // SC : O(N) due to map
     public static boolean isCousins(TreeNode<Integer> root, int x, int y) {
         mp.clear();
+        isXFound = isYFound = false;
         int depth1 = 0, depth2 = 0;
         Queue<TreeNode<Integer>> queue = new ArrayDeque<>();
         queue.offer(root);
         int depth = -1;
         while(!queue.isEmpty()) {
             depth++;
+            if(isXFound && isYFound) {
+                break;
+            }
             int sz = queue.size();
             for(int i=0; i<sz; i++) {
                 TreeNode<Integer> pop = queue.poll();
@@ -57,12 +65,16 @@ public class SameDepthCousins {
     private static void putIfXOrY(TreeNode<Integer> root, TreeNode<Integer> child, int x, int y) {
         if(child.val == x) {
             mp.put(x, root.val);
+            isXFound = true;
         } else if(child.val == y) {
             mp.put(y, root.val);
+            isYFound = true;
         }
     }
 
+    // driver - main method
     public static void main(String[] args) {
+        // TESTCASES
         TreeNode<Integer> root = TreeUtil.getDummyBinarySearchTree();
         System.out.println(isCousins(root, 4, 9));
         System.out.println(isCousins(root, 6, 6));

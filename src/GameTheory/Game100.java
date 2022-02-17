@@ -49,12 +49,13 @@ public class Game100 {
                 cache.put(getKey(chosen), true);
                 return true;
             }
-            chosen[i] = false;
+            chosen[i] = false;          // backtrack
         }
         cache.put(getKey(chosen), false);
         return false;
     }
 
+    // instead of Arrays.toString(boolean[]) use below to prevent TLE
     private static String getKey(boolean[] chosen) {
         int key = 0;
         for(boolean e: chosen) {
@@ -65,7 +66,9 @@ public class Game100 {
         return Integer.toString(key);
     }
 
+    // driver - main method
     public static void main(String[] args) {
+        // TESTCASE
         System.out.println(game100(10, 11));
     }
 

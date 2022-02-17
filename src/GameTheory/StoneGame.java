@@ -48,6 +48,7 @@ public class StoneGame {
 
     public static void main(String[] args) {
         // FUN FACT : Answer will always be true, Alice will always win!
+        // so return true; always passes!!
         System.out.println(stoneGame(new int[] {5,3,4,5}));
     }
 

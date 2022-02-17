@@ -18,6 +18,8 @@ package GameTheory;
 
 public class XorGame {
 
+    // TC : O(N)
+    // SC : O(1)
     private static boolean xorGame(int[] nums) {
         if(nums.length % 2 == 0) {
             return true;
@@ -29,7 +31,9 @@ public class XorGame {
         return xor == 0;
     }
 
+    // driver - main method
     public static void main(String[] args) {
+        // TESTCASE
         System.out.println(xorGame(new int[] {1,1,2}));
     }
 
