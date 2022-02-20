@@ -23,17 +23,17 @@ public class KthLargestInStream {
     public KthLargestInStream(int k, int[] nums) {
         this.k = k;
         for(int num : nums) {
-            min.add(num);
+            min.offer(num);
             if(min.size() > k) {
-                min.remove();
+                min.poll();
             }
         }
     }
 
     public int add(int val) {
-        min.add(val);
+        min.offer(val);
         if(min.size() > k) {
-            min.remove();
+            min.poll();
         }
         return min.peek();
     }
