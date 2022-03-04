@@ -39,7 +39,9 @@ public class BrokenCalculator {
         return step + (startValue - target);
     }
 
+    // driver - main method
     public static void main(String[] args) {
+        // TESTCASES
         System.out.println(brokenCalc(1024, 1));
         System.out.println(brokenCalc(5, 8));
     }

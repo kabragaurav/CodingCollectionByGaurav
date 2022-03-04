@@ -37,6 +37,7 @@ public class MagicDictionaryFuzzyMatching {
     public void buildDict(String[] dictionary) {
         for(String s : dictionary) {
             for(int i=0; i<s.length(); i++) {
+                // remove one character at a time and store in map
                 String t = s.substring(0, i) + s.substring(i+1, s.length());
                 List<Pair> ls;
                 if(mp.containsKey(t)) {
@@ -52,6 +53,7 @@ public class MagicDictionaryFuzzyMatching {
 
     public boolean search(String s) {
         for(int i=0; i<s.length(); i++) {
+            // remove one character at a time and see if map contains that substring. If yes, return true
             String t = s.substring(0, i) + s.substring(i+1, s.length());
             if(mp.containsKey(t)) {
                 List<Pair> ls = mp.get(t);
@@ -76,7 +78,9 @@ public class MagicDictionaryFuzzyMatching {
         }
     }
 
+    // driver - main method
     public static void main(String[] args) {
+        // TESTCASES
         MagicDictionaryFuzzyMatching magic = new MagicDictionaryFuzzyMatching();
         magic.buildDict(new String[] {"hello", "hallo", "leetcode"});
         System.out.println(magic.search("hello"));

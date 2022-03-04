@@ -7,7 +7,6 @@ import Trees.TreeUtils.TreeNode;
 import Trees.TreeUtils.TreeUtil;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -17,6 +16,8 @@ import java.util.List;
 
 public class RootToLeafPaths {
 
+    // TC : O(N) since traverse every node
+    // SC : O(N) for list and internal recursion stack
     private static void traverse(TreeNode root, String s, List<String> ls) {
         if(root == null) {
             return;
@@ -36,7 +37,9 @@ public class RootToLeafPaths {
         return ls;
     }
 
+    // driver - main method
     public static void main(String[] args) {
+        // TESTCASE
         binaryTreePaths(TreeUtil.getDummyBinarySearchTree())
                 .stream()
                 .forEach(x -> System.out.println(x));

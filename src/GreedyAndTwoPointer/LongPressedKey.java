@@ -50,7 +50,9 @@ public class LongPressedKey {
         return true;
     }
 
+    // driver - main method
     public static void main(String[] args) {
+        // TESTCASES
         System.out.println(isLongPressedName("pyplrz", "ppyypllr"));
         System.out.println(isLongPressedName("alex", "aaleexa"));
     }

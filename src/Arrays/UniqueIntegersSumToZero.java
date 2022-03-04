@@ -13,6 +13,8 @@ import Arrays.Utils.ArrayUtils;
 
 public class UniqueIntegersSumToZero {
 
+    // TC : O(N) for populating array
+    // SC : O(1)
     private static int[] sumZero(int n) {
         int[] ans = new int[n];
         boolean isOdd = false;

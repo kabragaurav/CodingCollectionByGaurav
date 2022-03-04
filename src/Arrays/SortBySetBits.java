@@ -18,6 +18,8 @@ import java.util.Arrays;
 
 public class SortBySetBits {
 
+    // TC : O(NlogN)
+    // SC : O(N)
     private static int[] sortByBits(int[] nums) {
         Integer[] arr = Arrays.stream(nums).boxed().toArray( Integer[]::new);
         Arrays.sort(arr, (Integer num1, Integer num2) -> {

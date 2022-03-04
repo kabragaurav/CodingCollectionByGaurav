@@ -11,6 +11,8 @@ package Arrays;
 
 public class OccurMoreThanOneFourth {
 
+    // TC : O(N) if we find number at last
+    // SC : O(1)
     private static int findSpecialInteger(int[] arr) {
         int oneFourth = arr.length/4;
         for(int i=0; i<arr.length-oneFourth; i++) {
@@ -21,7 +23,9 @@ public class OccurMoreThanOneFourth {
         return -1;
     }
 
+    // driver - main method
     public static void main(String[] args) {
+        // TESTCASE
         System.out.println(findSpecialInteger(new int[] {1,2,2,6,6,6,6,7,10}));
     }
 
