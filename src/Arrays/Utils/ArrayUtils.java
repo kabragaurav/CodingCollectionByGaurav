@@ -10,11 +10,16 @@ package Arrays.Utils;
 public class ArrayUtils {
 
     public static void printArray(int[] arr) {
-        System.out.println("#########################");
         for(int num : arr) {
             System.out.print(num + "    ");
         }
-        System.out.println("\n#########################\n");
+        System.out.println();
+    }
+
+    public static void printArray(int[][] nums) {
+        for(int[] num : nums) {
+            printArray(num);
+        }
     }
 
 }

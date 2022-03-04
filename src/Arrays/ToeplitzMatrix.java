@@ -64,10 +64,39 @@ public class ToeplitzMatrix {
         return true;
     }
 
+    // Jason Kim, Pramp
+    private static boolean isToeplitz(int[][] arr) {
+
+        if (arr.length == 0) {
+            return true;
+        }
+
+        if (arr[0].length == 0) {
+            return true;
+        }
+
+        int ROWS = arr.length;
+        int COLS = arr[0].length;
+
+        for (int r = 1; r < ROWS; r++) {
+            for (int c = 1; c < COLS; c++) {
+                if (arr[r][c] != arr[r-1][c-1]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     // driver - main method
     public static void main(String[] args) {
         // TESTCASE
         System.out.println(isToeplitzMatrix(new int[][] {
+                {1,2,3,4},
+                {5,1,2,3},
+                {9,5,1,2}
+        }));
+        System.out.println(isToeplitz(new int[][] {
                 {1,2,3,4},
                 {5,1,2,3},
                 {9,5,1,2}
