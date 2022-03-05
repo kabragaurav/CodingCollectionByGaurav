@@ -37,7 +37,7 @@ public class IsSudokuValid {
             }
         }
 
-        if(candidates == null) {
+        if(candidates == null) {        // all cells are filled
             return true;
         }
 
@@ -46,6 +46,7 @@ public class IsSudokuValid {
             if(sudokuSolve(board)) {
                 return true;
             }
+            // backtrack
             board[row][col] = '.';
         }
         return false;
