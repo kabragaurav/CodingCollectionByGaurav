@@ -15,6 +15,50 @@ import java.util.stream.Collectors;
 
 public class MoveZerosToEnd {
 
+    /*
+
+    Intuitive O(N), O(1) solved by someone on Pramp
+
+    static int[] moveZerosToEnd(int[] arr) {
+
+        int zero = 0, non = 0, len = arr.length;
+
+        while (zero < len && non < len) {
+
+          while (zero < len) {
+            if (arr[zero] == 0) {
+              break;
+            }
+            zero ++;
+          }
+
+          if (zero == len) {
+            return arr;
+          }
+
+          non = zero + 1;
+          while (non < len) {
+            if (arr[non] != 0) {
+              break;
+            }
+            non ++;
+          }
+
+          if (non == len) {
+            return arr;
+          }
+
+          int tmp = arr[zero];
+          arr[zero] = arr[non];
+          arr[non] = tmp;
+
+          zero++;
+        }
+        return arr;
+	}
+
+     */
+
     private static int[] moveZerosToEnd(int[] arr) {
         int N = arr.length;
         int first = 0;
