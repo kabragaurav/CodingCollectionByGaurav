@@ -19,6 +19,9 @@ public class AbsoluteValueLinkedList {
     // TC : O(N)
     // SC : O(1)
     private static Node sortList(Node<Integer> head) {
+        if(head == null) {
+            return null;
+        }
         Node<Integer> prev = head;
         Node<Integer> curr = head.next;
 

@@ -57,6 +57,7 @@ public class PacificAtlantic {
             return ans;
         }
 
+        // track if the ocean can be visited from each (i,j)
         boolean[][] pacific = new boolean[M][N];
         boolean[][] atlantic = new boolean[M][N];
 
