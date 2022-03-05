@@ -42,6 +42,8 @@ public class APlusBEqualsCPlusD {
         return B;
     }
 
+    // TC : O(N)
+    // SC : O(N)
     private static int[] satisfyEqn(int[] A, int N) {
         int[] candidate = new int[4];
         Arrays.fill(candidate, Integer.MAX_VALUE);
@@ -66,7 +68,9 @@ public class APlusBEqualsCPlusD {
 
     }
 
+    // driver - main method
     public static void main(String[] args) {
+        // TESTCASE
         ArrayUtils.printArray(satisfyEqn(new int[] {3, 4, 7, 1, 2, 9, 8}, 7));
     }
 

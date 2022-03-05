@@ -27,7 +27,6 @@ import java.util.Arrays;
 
 public class PacificAtlantic {
 
-    // https://tinyurl.com/pacific-atlantic
     private static int[][] dirs = new int[][] {
             {-1,0},
             {0,1},
@@ -35,7 +34,9 @@ public class PacificAtlantic {
             {0,-1}
     };
 
+    // driver - main method
     public static void main(String[] args) {
+        // TESTCASE
         pacificAtlantic(new int[][] {{1,2,2,3,5},{3,2,3,4,4},{2,4,5,3,1},{6,7,1,4,5},{5,1,1,2,4}})
                 .stream()
                 .forEach(ls -> ls.stream()
@@ -43,6 +44,9 @@ public class PacificAtlantic {
                 );
     }
 
+    // Great explanation here: https://tinyurl.com/pacific-atlantic (Move from edges towards inside)
+    // TC : O(N^2)
+    // SC : O(N^2)
     private static List<List<Integer>> pacificAtlantic(int[][] heights) {
 
         List<List<Integer>> ans = new ArrayList<>();
@@ -73,7 +77,6 @@ public class PacificAtlantic {
                 }
             }
         }
-
         return ans;
     }
 

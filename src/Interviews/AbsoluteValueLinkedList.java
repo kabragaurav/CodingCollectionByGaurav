@@ -16,6 +16,8 @@ import LinkedList.CustomLL.CustomLinkedList.Node;
 
 public class AbsoluteValueLinkedList {
 
+    // TC : O(N)
+    // SC : O(1)
     private static Node sortList(Node<Integer> head) {
         Node<Integer> prev = head;
         Node<Integer> curr = head.next;
@@ -34,7 +36,9 @@ public class AbsoluteValueLinkedList {
         return head;
     }
 
+    // driver - main method
     public static void main(String[] args) {
+        // TESTCASE
         CustomLinkedList customLinkedList = new CustomLinkedList<Integer>();
         customLinkedList.displayLinkedList(sortList(customLinkedList.createLinkedList(1, -2, -3, 4, -5)));
     }
