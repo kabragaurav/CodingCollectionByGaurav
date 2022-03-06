@@ -15,6 +15,9 @@ import java.util.stream.Collectors;
 
 public class MoveZerosToEnd {
 
+    // STANDARD SNOWBALL TECHNIQUE
+    // https://leetcode.com/problems/move-zeroes/discuss/172432/THE-EASIEST-but-UNUSUAL-snowball-JAVA-solution-BEATS-100-(O(n)-%2B-clear-explanation
+
     /*
 
     Intuitive O(N), O(1) solved by someone on Pramp
