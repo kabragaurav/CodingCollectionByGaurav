@@ -21,18 +21,19 @@ public class IsSudokuValid {
         int row = -1;
         int col = -1;
         List<Character> candidates = null;
+        List<Character> newCandid = null;
         for(int i=0; i<9; i++) {
             for(int j=0; j<9; j++) {
                 if(board[i][j] == '.') {
-                    candidates = getCandidates(board, i, j);
-                    if(candidates != null && candidates.size() > 0) {
+                    newCandid = getCandidates(board, i, j);
+                    if(newCandid != null && (candidates == null || candidates.size() > newCandid.size())) {
+                        candidates = newCandid;
                         row = i;
                         col = j;
-                        break;
                     }
                 }
             }
-            if(candidates != null) {
+            if(candidates != null && candidates.size() > 0) {
                 break;
             }
         }
@@ -64,7 +65,6 @@ public class IsSudokuValid {
 
     private static boolean isValid(char[][] board, char num, int i, int j) {
         // row
-        int count = 0;
         for(int col=0; col<9; col++) {
             if(board[i][col] == num) {
                 return false;
@@ -72,7 +72,6 @@ public class IsSudokuValid {
         }
 
         // col
-        count = 0;
         for(int row=0; row<9; row++) {
             if(board[row][j] == num) {
                 return false;
