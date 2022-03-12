@@ -30,6 +30,7 @@ public class FlattenDictionary {
 
     // TC : O(N) with N overall keys
     // SC : O(N) for ans
+    @SuppressWarnings("unchecked")
     private static void helper(String currKey, Object value, HashMap<String, String> ans) {
         // below is rough way to know if value is of type String
         /*
@@ -105,7 +106,6 @@ public class FlattenDictionary {
 
         // TESTCASE
         HashMap<String, String> mp = flattenDictionary(dict);
-
 
         for(Map.Entry<String, String> entry : mp.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue());
