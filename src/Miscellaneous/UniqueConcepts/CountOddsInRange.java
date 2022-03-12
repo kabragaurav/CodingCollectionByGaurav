@@ -13,7 +13,7 @@ public class CountOddsInRange {
     // TC : O(1)
     // SC : O(1)
     private static int countOdds(int low, int high) {
-        return (high+1)/2 + low/2;
+        return (high+1)/2 - low/2;
     }
 
     // driver - main method
