@@ -32,11 +32,13 @@ public class FlattenDictionary {
     // SC : O(N) for ans
     private static void helper(String currKey, Object value, HashMap<String, String> ans) {
         // below is rough way to know if value is of type String
-//        try {
-//            String val = (String) value;
-//            ans.put(currKey, val);
-//            return;
-//        } catch(Exception ex) { }
+        /*
+        try {
+            String val = (String) value;
+            ans.put(currKey, val);
+            return;
+        } catch(Exception ex) { }
+         */
         if(value instanceof String) {   // class or subclass (String is final, so no subclass)
             // or try with value.getClass().equals(String.class)  for exact class
             ans.put(currKey, (String) value);
@@ -71,6 +73,7 @@ public class FlattenDictionary {
 
     }
 
+    // driver - main method
     public static void main(String[] args) {
         /**
              dict = {
@@ -100,6 +103,7 @@ public class FlattenDictionary {
         dict.put("Key1", "1");
         dict.put("key2", key2);
 
+        // TESTCASE
         HashMap<String, String> mp = flattenDictionary(dict);
 
 
