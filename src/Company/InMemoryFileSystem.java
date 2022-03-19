@@ -49,7 +49,7 @@ import java.util.*;
 public class InMemoryFileSystem {
 
     private class TrieNode {
-        String content;
+        String content;                                         // null for directories
         Map<String, TrieNode> children = new TreeMap<>();       // since we don't have duplicates, use TreeMap
     }
 
@@ -63,16 +63,14 @@ public class InMemoryFileSystem {
     // TC : O(logN) for going to that node and get all children
     public List<String> ls(String path) {
         TrieNode node = root;
-        if (! "/".equals(path)) {
-            String[] dirs = path.split("/");
-            String curr = null;
-            for (int i=1; i<dirs.length; i++) {
-                curr = dirs[i];
-                node = node.children.get(curr);
-            }
-            if (node.content != null) {
-                return Arrays.asList(curr);
-            }
+        String[] dirs = path.split("/");
+        String curr = null;
+        for (int i=1; i<dirs.length; i++) {
+            curr = dirs[i];
+            node = node.children.get(curr);
+        }
+        if (node.content != null) {         // that means it is file
+            return Arrays.asList(curr);
         }
 
         List<String> children = new ArrayList<>(node.children.keySet());
@@ -93,7 +91,7 @@ public class InMemoryFileSystem {
             node = node.children.get(curr);
         }
 
-        return node;
+        return node;        // return last node
     }
     // mkdir
     // TC : O(logN) for adding
