@@ -39,14 +39,14 @@ public class DesignMailApp {
 
         // set user summaries
         userToEmailsSummary = new HashMap<>();
-        EmailSummary emailSummary1 = new EmailSummary(10, 5, 2, 0);
-        EmailSummary emailSummary2 = new EmailSummary(5, 15, 4, 1);
-        userToEmailsSummary.put(users.get(0),emailSummary1);
-        userToEmailsSummary.put(users.get(1),emailSummary2);
+        for (User user : users) {
+            userToEmailsSummary.put(user, user.getEmailSummary());
+        }
 
         // set all emails
         List<Mail> mails1 = new ArrayList<>();
-        mails1.add(new Mail("user1", "user2", "this is a subject", "hey user1 from user2", Type.RECEIVED));
+        mails1.add(new Mail("user1@zsma.in", "user2@zsma.in", "this is a subject", "hey user1 from user2", Type.RECEIVED));
+        mails1.add(new Mail("user2@zsma.in", "user1@zsma.in", "this is a subject", "hey user1 from user2", Type.SENT));
         users.get(0).setAllEmails(mails1);
     }
 
@@ -68,32 +68,21 @@ public class DesignMailApp {
     }
 
     public boolean isDeleteUserSuccessful() {
-        System.out.println(EMAIL_STATEMENT_PROMPT);
-        String email = userInputTaker.nextLine();
         System.out.println(PASSWORD_STATEMENT_PROMPT);
         String password = userInputTaker.nextLine();
-        User whomToDelete = null;
-        boolean isUserFound = false;
-        for (User user : users) {
-            if (user.getEmailId().equals(email) && user.getLoginPassword().equals(password)) {
-                whomToDelete = user;
-                isUserFound = true;
-                break;
-            }
-        }
-
-        if (!isUserFound) {
+        if (!currentUser.getLoginPassword().equals(password)) {
             return false;
         }
 
-        users.remove(whomToDelete);
+        users.remove(currentUser);
         for (User use : emailToPassword) {
-            if (use.equals(whomToDelete)) {
+            if (use.equals(currentUser)) {
                 emailToPassword.remove(use);
                 break;
             }
         }
-        return false;
+        currentUser = null;
+        return true;
     }
 
     public List<Mail> getEmailBySubject(String subject) {

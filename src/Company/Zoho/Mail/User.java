@@ -18,10 +18,6 @@ public class User {
     private EmailSummary emailSummary;
     private List<Mail> allEmails;
     private static Scanner userInputTaker;
-    private int sentCount;
-    private int inboxCount;
-    private int failedCount;
-    private int trashedCount;
 
     private static final String DOMAIN = "zsma.in";
     private static final String TO_PROMPT = "Whom to sent email";
@@ -34,10 +30,7 @@ public class User {
         this.emailId = emailId;
         this.loginPassword = loginPassword;
         allEmails = new ArrayList<>();
-        sentCount = 0;
-        inboxCount = 0;
-        failedCount = 0;
-        trashedCount = 0;
+        emailSummary = new EmailSummary(0,0,0,0);
     }
 
     public String getEmailId() {
@@ -139,7 +132,7 @@ public class User {
         String subject = userInputTaker.nextLine();
         System.out.println(CONTENT_PROMPT);
         String content = userInputTaker.nextLine();
-        sentCount++;
+        emailSummary.setSentEmailsCount(emailSummary.getSentEmailsCount() + 1);
         Mail mail = new Mail(to, from, subject, content, Type.SENT);
 
         allEmails.add(mail);
