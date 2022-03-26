@@ -50,4 +50,12 @@ public class EmailSummary {
     public void setTrashEmailsCount(int trashEmailsCount) {
         this.trashEmailsCount = trashEmailsCount;
     }
+
+    @Override
+    public String toString() {
+        return this.inboxEmailsCount + ", "
+                + this.trashEmailsCount + ", "
+                + this.failedEmailsCount + ", "
+                + this.sentEmailsCount;
+    }
 }
