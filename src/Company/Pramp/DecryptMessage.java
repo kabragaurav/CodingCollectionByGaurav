@@ -66,6 +66,7 @@ public class DecryptMessage {
         // TESTCASES
         System.out.println(decrypt("dnotq"));
         System.out.println(decrypt(""));
+        System.out.println(decrypt("abc"));
     }
 
 }

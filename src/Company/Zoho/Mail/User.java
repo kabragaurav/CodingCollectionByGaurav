@@ -57,10 +57,6 @@ public class User {
         this.allEmails = allEmails;
     }
 
-    public boolean verifyPassword(String password) {
-        return loginPassword.equals(password);
-    }
-
     public static boolean isPasswordStrong(String password) {
         return password.length() >= 6 &&
                 password.chars().anyMatch(ch -> Character.isLetter(ch) && Character.isUpperCase(ch)) &&
@@ -95,7 +91,7 @@ public class User {
         return allInboxEmails;
     }
 
-    public boolean trashAMail(String subject) {
+    public void trashAMail(String subject) {
         List<Mail> matchedMails = new ArrayList<>();
 
         for (Mail mail : allEmails) {
@@ -106,11 +102,8 @@ public class User {
 
         for (Mail mail : matchedMails) {
             mail.setType(Type.TRASHED);
+            emailSummary.setTrashEmailsCount(emailSummary.getTrashEmailsCount() + 1);
         }
-
-        emailSummary.setTrashEmailsCount(emailSummary.getTrashEmailsCount() + 1);
-
-        return true;
     }
 
     public boolean composeMail() {
@@ -162,7 +155,7 @@ public class User {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(this.getEmailId() + ":" + this.getLoginPassword());
+        return Objects.hashCode(this.getEmailId());
     }
 
     @Override

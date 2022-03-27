@@ -129,6 +129,7 @@ public class DesignMailApp {
         User newUser = new User(email, password);
         users.add(newUser);
         emailToPassword.add(newUser);
+        userToEmailsSummary.put(newUser, new EmailSummary(0,0,0,0));
         return true;
     }
 
@@ -231,8 +232,10 @@ public class DesignMailApp {
                 case 10:
                     System.out.println("Enter email ID on which to filter");
                     String emailId = userInputTaker.nextLine();
-                    mails = currentUser.getAllSentMailsByEmailId(emailId);
-                    System.out.println(mails);
+                    if (null != currentUser) {
+                        mails = currentUser.getAllSentMailsByEmailId(emailId);
+                        System.out.println(mails);
+                    }
                     break;
                 case 11:
                     System.exit(0);
