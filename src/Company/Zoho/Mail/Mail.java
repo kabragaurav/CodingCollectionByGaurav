@@ -1,5 +1,7 @@
 package Company.Zoho.Mail;
 
+import java.util.Date;
+
 /**
  * @author gauravkabra
  * @since 26/Mar/2022
@@ -11,6 +13,7 @@ public class Mail {
     private String subject;
     private String content;
     private Type type;
+    private Date date;
 
     public Mail(String to, String from, String subject, String content, Type type) {
         this.to = to;
@@ -18,6 +21,7 @@ public class Mail {
         this.subject = subject;
         this.content = content;
         this.type = type;
+        this.date = new Date();
     }
 
     public String getTo() {
@@ -62,6 +66,11 @@ public class Mail {
 
     @Override
     public String toString() {
-        return this.from + "->" + this.to + ", SUBJECT : " + this.subject + ", CONTENT : " + this.content;
+        return  "[ "
+                + this.from + "->" + this.to
+                + ", SUBJECT : " + this.subject
+                + ", CONTENT : " + this.content
+                + ", Date : " + this.date
+                + " ]\n";
     }
 }

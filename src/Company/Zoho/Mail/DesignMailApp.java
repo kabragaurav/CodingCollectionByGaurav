@@ -23,22 +23,20 @@ public class DesignMailApp {
     private static Scanner userInputTaker;
     private static User currentUser;
 
-    public static HashSet<User> getEmailToPassword() {
-        return emailToPassword;
-    }
-
     DesignMailApp() {
         userInputTaker = new Scanner(System.in);
 
         // set users with email and pwd
         emailToPassword = new HashSet<>();
         users = new ArrayList<>();
-        users.add(new User("user1@zsma.in", "test1234"));
-        users.add(new User("user2@zsma.in", "pwd12345"));
+        users.add(new User("user1@zsma.in", "Test1234"));
+        users.add(new User("user2@zsma.in", "Pwd12345"));
         emailToPassword.addAll(users);
 
         // set user summaries
         userToEmailsSummary = new HashMap<>();
+        users.get(0).setEmailSummary(new EmailSummary(1, 0, 1, 0));
+        users.get(1).setEmailSummary(new EmailSummary(1, 0, 1, 0));
         for (User user : users) {
             userToEmailsSummary.put(user, user.getEmailSummary());
         }
@@ -48,6 +46,12 @@ public class DesignMailApp {
         mails1.add(new Mail("user1@zsma.in", "user2@zsma.in", "this is a subject", "hey user1 from user2", Type.RECEIVED));
         mails1.add(new Mail("user2@zsma.in", "user1@zsma.in", "this is a subject", "hey user1 from user2", Type.SENT));
         users.get(0).setAllEmails(mails1);
+        users.get(1).setAllEmails(mails1);
+    }
+
+
+    public static HashSet<User> getEmailToPassword() {
+        return emailToPassword;
     }
 
 
@@ -81,7 +85,7 @@ public class DesignMailApp {
                 break;
             }
         }
-        currentUser = null;
+        logoutFlow();
         return true;
     }
 
@@ -141,7 +145,7 @@ public class DesignMailApp {
         if (user.getLoginPassword().equals(password)) {
             return user;
         }
-        System.out.printf(INVALID_PASSWORD);
+        System.out.println(INVALID_PASSWORD);
         return null;
     }
 

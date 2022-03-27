@@ -108,6 +108,8 @@ public class User {
             mail.setType(Type.TRASHED);
         }
 
+        emailSummary.setTrashEmailsCount(emailSummary.getTrashEmailsCount() + 1);
+
         return true;
     }
 
@@ -115,6 +117,10 @@ public class User {
         String from = this.getEmailId();
         System.out.println(TO_PROMPT);
         String to = userInputTaker.nextLine();
+        System.out.println(SUBJECT_PROMPT);
+        String subject = userInputTaker.nextLine();
+        System.out.println(CONTENT_PROMPT);
+        String content = userInputTaker.nextLine();
         List<User> users = DesignMailApp.getUsers();
         boolean isValidTo = false;
         for (User user : users) {
@@ -125,16 +131,13 @@ public class User {
         }
         if (!isValidTo) {
             System.out.println(INVALID_TO_PROMPT);
+            Mail mail = new Mail(to, from, subject, content, Type.FAILED);
+            allEmails.add(mail);
+            emailSummary.setFailedEmailsCount(emailSummary.getFailedEmailsCount() + 1);
             return false;
         }
-
-        System.out.println(SUBJECT_PROMPT);
-        String subject = userInputTaker.nextLine();
-        System.out.println(CONTENT_PROMPT);
-        String content = userInputTaker.nextLine();
         emailSummary.setSentEmailsCount(emailSummary.getSentEmailsCount() + 1);
         Mail mail = new Mail(to, from, subject, content, Type.SENT);
-
         allEmails.add(mail);
         return true;
     }
