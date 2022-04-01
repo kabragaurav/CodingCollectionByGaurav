@@ -46,12 +46,15 @@ public class KthMissingNumber {
         while (left <= right) {
             int mid = left + (right-left)/2;
 
+            // the number of missings under A[mid] is A[mid] - 1 - mid
             if (arr[mid]-1-mid < k) {
                 left = mid+1;
             } else {
                 right = mid-1;
             }
         }
+
+        // the kth positive number will be left + k
         return left + k;
     }
 
