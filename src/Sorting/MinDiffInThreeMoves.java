@@ -17,6 +17,12 @@ import java.util.Arrays;
 
 public class MinDiffInThreeMoves {
 
+    /*
+        Excellent video : https://tinyurl.com/min-diff-in-3-moves
+
+        TC : O(NlogN)
+        SC : O(1)
+     */
     private static int minDifference(int[] nums) {
         int N = nums.length;
         if (N <= 4) {
