@@ -19,16 +19,19 @@ public class ProductExceptSelf {
          * Logic:
          * This is an amazing explanation to this problem:
          * https://tinyurl.com/product-without-self
+         *
+         * TC : O(N)
+         * SC : O(N)
          */
         int[] ans = new int [nums.length];
 
         ans[0] = 1;
-        for(int i=1; i<nums.length; i++){
+        for (int i=1; i<nums.length; i++) {
             ans[i] = ans[i-1] * nums[i-1];      // calculate left products
         }
 
         int right = 1;
-        for(int i=nums.length-1; i>=0; i--){    // calculate right products
+        for (int i=nums.length-1; i>=0; i--) {    // calculate right products
             ans[i] = ans[i] * right;
             right *= nums[i];
         }
