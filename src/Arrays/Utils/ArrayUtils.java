@@ -29,4 +29,10 @@ public class ArrayUtils {
         }
     }
 
+    public static void printArray(char[][] chrs) {
+        for (char[] ch : chrs) {
+            printArray(ch);
+        }
+    }
+
 }

@@ -10,6 +10,8 @@ import Arrays.Utils.ArrayUtils;
 
 public class SentenceReverse {
 
+    // TC : O(N)
+    // SC : O(1)
     private static char[] reverseWords(char[] arr) {
         int N = arr.length;
 
