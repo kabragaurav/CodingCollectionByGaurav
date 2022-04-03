@@ -78,6 +78,7 @@ public class DiffBetweenStrings {
             helper(src, target, new ArrayList<>(ls), i+1, j+1, l1, l2, edits);
             ls.remove("" + src.charAt(i));
         } else {                                            // otherwise
+            // If there are multiple answers, use the answer that favors removing from the source first.
             ls.add("-" + src.charAt(i));
             helper(src, target, new ArrayList<>(ls), i + 1, j, l1, l2, edits + 1);
             ls.remove(ls.size() - 1);
