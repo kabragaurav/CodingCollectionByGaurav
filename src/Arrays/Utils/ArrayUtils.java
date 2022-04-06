@@ -10,21 +10,28 @@ package Arrays.Utils;
 public class ArrayUtils {
 
     public static void printArray(int[] arr) {
-        for(int num : arr) {
+        for (int num : arr) {
             System.out.print(num + "    ");
         }
         System.out.println();
     }
 
     public static void printArray(char[] arr) {
-        for(char ch : arr) {
+        for (char ch : arr) {
             System.out.print(ch + "    ");
         }
         System.out.println();
     }
 
+    public static void printArray(double[] arr) {
+        for (double num : arr) {
+            System.out.print(num + "    ");
+        }
+        System.out.println();
+    }
+
     public static void printArray(int[][] nums) {
-        for(int[] num : nums) {
+        for (int[] num : nums) {
             printArray(num);
         }
     }
@@ -32,6 +39,12 @@ public class ArrayUtils {
     public static void printArray(char[][] chrs) {
         for (char[] ch : chrs) {
             printArray(ch);
+        }
+    }
+
+    public static void printArray(double[][] nums) {
+        for (double[] num : nums) {
+            printArray(num);
         }
     }
 
