@@ -15,13 +15,28 @@ class ProducerConsumer {
     void producer() throws InterruptedException {
         int val = 0;
         while (true) {
-            synchronized (this) { // no more than one thread will be able to access the code inside this block. Needed for notify() and wait() methods to work
+            // create critical section.
+            // No more than one thread will be able to access the code inside this block.
+            // Needed for notify() and wait() methods to work
+            synchronized (this) {
+                /*
+                    synchronized( lockObject )
+                    {
+                      while( ! condition )
+                      {
+                        lockObject.wait();
+                      }
+
+                      //take the action here;
+                    }
+                 */
                 while (queue.size() == CAPACITY) {
-                    wait();
+                    wait();     // go to sleep by releasing the lock
                 }
                 System.out.println("Producer : " + val);
                 queue.add(val++);
-                notify();
+                // notifyAll() then mostly thread with most priority runs. Else one which has all resources runs
+                notify();       // wake up a single thread that called wait() on same obj. Lock is not given though until synchronized block is executed
                 Thread.sleep(1000);         // so that output screen is not filled immediately with all dumps
             }
         }
@@ -42,6 +57,12 @@ class ProducerConsumer {
 
 }
 
+/*
+    InterruptionException
+        - An interrupt is an indication to a thread that it should stop what it is doing and do something else.
+        - Eg. while sleeping or waiting and interrupt using Thread.interrupt() in main method
+
+ */
 public class ProducerConsumerUsingInterThreadComm extends Thread {
 
     // driver - main method
