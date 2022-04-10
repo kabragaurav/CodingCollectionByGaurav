@@ -46,8 +46,8 @@ public class LongestChain {
                 String subWord = word.substring(0, j) + word.substring(j+1);
                 count = Math.max(count, mp.getOrDefault(subWord, 0) + 1);   // As problem says : A single word is trivially a word chain with k == 1.
                 max = Math.max(max, count);
-                mp.put(word, count);
             }
+            mp.put(word, count);
         }
         return max;
     }
