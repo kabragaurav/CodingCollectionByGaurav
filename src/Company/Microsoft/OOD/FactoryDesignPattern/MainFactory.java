@@ -1,3 +1,7 @@
+/*
+    Factory Design Pattern falls in Creational Design Patterns category.
+ */
+
 package Company.Microsoft.OOD.FactoryDesignPattern;
 
 /**
