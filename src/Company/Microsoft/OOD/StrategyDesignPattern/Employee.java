@@ -1,4 +1,4 @@
-package Company.Microsoft.OOD.Strategy;
+package Company.Microsoft.OOD.StrategyDesignPattern;
 
 /**
  * @author gaurav kabra

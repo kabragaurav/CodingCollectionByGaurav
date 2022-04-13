@@ -1,15 +1,15 @@
-package Company.Microsoft.OOD.Strategy;
+package Company.Microsoft.OOD.StrategyDesignPattern;
 
 /**
  * @author gaurav kabra
  * @since 13/Apr/2022
  **/
 
-public class TeamLead extends Employee implements IRole{
+public class Developer implements IRole {
 
     String role;
 
-    public TeamLead(String role) {
+    public Developer(String role) {
         this.role = role;
     }
 
