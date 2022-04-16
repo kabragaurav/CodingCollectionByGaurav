@@ -8,7 +8,7 @@ package Company.Microsoft.OOD.AdapterDesignPattern;
 public class MacBook {
 
     public void chargeMacbook(WindowsCharger windowsCharger) {
-        Adapter charger = new Adapter(windowsCharger);
-        charger.charge();
+        MacCharger macCharger = new MacCharger(windowsCharger);
+        macCharger.charge();
     }
 }

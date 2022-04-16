@@ -5,11 +5,11 @@ package Company.Microsoft.OOD.AdapterDesignPattern;
  * @since 13/Apr/2022
  **/
 
-public class Adapter {
+public class MacCharger {
 
     WindowsCharger windowsCharger;
 
-    public Adapter(WindowsCharger windowsCharger) {
+    public MacCharger(WindowsCharger windowsCharger) {
         this.windowsCharger = windowsCharger;
     }
 

@@ -1,5 +1,5 @@
 /*
-    Adapter design pattern falls in Structural Design Pattern.
+    MacCharger design pattern falls in Structural Design Pattern.
  */
 package Company.Microsoft.OOD.AdapterDesignPattern;
 

@@ -10,7 +10,7 @@ public class WindowsCharger {
     // assume you can call this method
     // but don't have source code
     public void charge() {
-        System.out.println("Charging started...");
+        System.out.println("Charging started now...");
     }
 
 }
