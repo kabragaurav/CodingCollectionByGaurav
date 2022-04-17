@@ -31,6 +31,7 @@ public class DecryptMessage {
 
     // TC : O(N)
     // SC : O(N) for step3[] and ans
+    // Note : ASCII 'a'-'z' = [97, 122]
     private static String decrypt(String word) {
         String ans = "";
         if(word.isEmpty()) {
