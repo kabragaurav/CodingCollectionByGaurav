@@ -16,10 +16,10 @@ import java.util.LinkedHashMap;
 public class LRUCache {
 	/**
 	 * Logic:
-	 * We will use LinkedHashMap which is same as HashMap except it maintains insertion order.
+	 * We will use LinkedHashMap which is same as Map except it maintains insertion order.
 	 * So it will be easy to know and remove most stale entry.
 	 * If we use TreeMap, it will keep sorting on basis of keys and hence order of insertion is disrupted
-	 * Same goes for HashMap which does not retain order and may change order based on each insertion
+	 * Same goes for Map which does not retain order and may change order based on each insertion
 	 * 
 	 * See this for more: https://tinyurl.com/map-implementations
 	 * 
