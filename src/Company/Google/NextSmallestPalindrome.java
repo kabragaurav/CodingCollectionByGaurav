@@ -17,6 +17,7 @@ public class NextSmallestPalindrome {
 
     // TC : O(N)
     // SC : O(N)
+    // https://tinyurl.com/next-smallest-palindrome
     private static void generateNextPalindrome(int[] num) {
         // if all 9's
         int N = num.length;
@@ -34,6 +35,7 @@ public class NextSmallestPalindrome {
         int left = mid - 1;
         int right = (N % 2 == 0 ? mid : mid+1);
 
+        // skip same digits at left and right
         while (left >= 0 && num[left] == num[right]) {
             left--;
             right++;
@@ -51,6 +53,7 @@ public class NextSmallestPalindrome {
 
         if (isLeftSmaller) {
             int carry = 1;
+            // if odd length arr, then add 1 to mid
             if (N % 2 == 1) {
                 num[mid] += 1;
                 if (num[mid] > 9) {
@@ -60,10 +63,11 @@ public class NextSmallestPalindrome {
                     carry = 0;
                 }
             }
+            // reset left and right
             left = mid - 1;
             right = (N % 2 == 0 ? mid : mid+1);
 
-
+            // and propagate adding 1 to MSB
             while (left >= 0 && carry == 1) {
                 num[left] += carry;
                 if (num[left] > 9) {
@@ -72,6 +76,7 @@ public class NextSmallestPalindrome {
                 } else {
                     carry = 0;
                 }
+                // plus keep mirroring
                 num[right++] = num[left--];
             }
         }
