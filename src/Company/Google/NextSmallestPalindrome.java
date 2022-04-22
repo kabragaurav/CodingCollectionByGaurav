@@ -1,3 +1,7 @@
+/*
+For a given positive integer K of not more than 1000000 digits, write the
+value of the smallest palindrome larger than K to output. Numbers are always displayed without leading zeros.
+ */
 package Company.Google;
 
 import Arrays.Utils.ArrayUtils;
