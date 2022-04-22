@@ -13,6 +13,8 @@ package Company.Google;
 
 public class PaintFence {
 
+    // TC : O(N)
+    // SC : O(3xN) ~ O(N)
     private static int numWays(int n, int k) {
 
         if (n <= 0) {

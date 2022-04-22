@@ -17,6 +17,8 @@ public class DominoAndTromino {
 
     private static final int MOD = 1000000007;
 
+    // TC : O(n)
+    // SC : O(1)
     private static int numTilings(int n) {
         int a = 1;
         int b = 2;

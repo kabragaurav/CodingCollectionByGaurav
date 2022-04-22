@@ -13,6 +13,8 @@ import java.util.Arrays;
 
 public class TileWithFewestSquares {
 
+    // TC : O(mxn)
+    // SC : O(mxn)
     private static int tilingRectangle(int n, int m) {
         // m = count of rows, being pointed by i
         // n = count of cols, being pointed by j

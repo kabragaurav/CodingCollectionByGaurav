@@ -16,6 +16,23 @@ public class ArrayUtils {
         System.out.println();
     }
 
+    /**
+     * Prints arr when condition is satisfied (i.e. true)
+     *
+     * If arr is printed, returns true.
+     * Else returns false.
+     */
+    public static boolean printArrayOnCondition(int[] arr, boolean condition) {
+        if (!condition) {
+            return false;
+        }
+        for (int num : arr) {
+            System.out.print(num + "    ");
+        }
+        System.out.println();
+        return true;
+    }
+
     public static void printArray(char[] arr) {
         for (char ch : arr) {
             System.out.print(ch + "    ");

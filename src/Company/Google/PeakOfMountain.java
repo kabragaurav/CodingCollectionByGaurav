@@ -18,6 +18,8 @@ package Company.Google;
 
 public class PeakOfMountain {
 
+    // TC : O(logN)
+    // SC : O(1)
     private static int peakIndexInMountainArray(int[] arr) {
         int N = arr.length;
 

@@ -13,6 +13,8 @@ import java.util.Arrays;
 
 public class SparseMatrixMul {
 
+    // TC : O(MxN)
+    // SC : O(MxN)
     private static int[][] multiply(int[][] a, int[][] b) {
         int[][] ans = new int[a.length][b[0].length];
 
