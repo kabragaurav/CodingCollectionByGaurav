@@ -17,7 +17,8 @@ public class MinSqrSideUsingTiles {
 
         Let x=sqrt(4*n+m).
 
-        if x is even then the whole x by x grid can be divide into 2 by 2 squares. So we will use the maximum possible 2 by 2 squares and since 4*n+m>=x*x so simply x is the answer.
+        if x is even then the whole x by x grid can be divide into 2 by 2 squares.
+        So we will use the maximum possible 2 by 2 squares and since 4*n+m>=x*x so simply x is the answer.
 
         if x is odd then the maximum possible 2 by 2 squares that can be used is ((x-1)*(x-1))/4; Let val1=((x-1)*(x-1))/4.
 
