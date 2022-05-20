@@ -1,11 +1,14 @@
+/*
+Given the postfix tokens of an arithmetic expression, build and return the binary expression tree that represents
+this expression.
+
+Could you design the expression tree such that it is more modular?
+For example, is your design able to support additional operators without making changes to your existing evaluate
+implementation?
+ */
 package Company.Amazon.LLD;
 
 import java.util.Stack;
-
-/**
- * @author gaurav kabra
- * @since 21/May/2022
- **/
 
 public class ExpressionTreeEvaluator {
 
@@ -57,10 +60,6 @@ class Node {
     Node left;
     Node right;
 
-    Node (String val) {
-        this (val, null, null);
-    }
-
     Node (String val, Node left, Node right) {
         this.val = val;
         this.left = left;
@@ -70,6 +69,7 @@ class Node {
     public int evaluate() {
         if (left == null && right == null)
             return Integer.valueOf(val);
+
         int left = this.left.evaluate();
         int right = this.right.evaluate();
 
