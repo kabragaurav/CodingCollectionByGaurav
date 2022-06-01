@@ -36,7 +36,6 @@ public class Elevator {
                     nextRequest = currJobs.pollLast();
                     processDownRequest(nextRequest);
                     if (currJobs.size() == 0) {
-                        // add upPendingJobs
                         addUpPendingJobs();
                     }
                 }
