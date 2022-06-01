@@ -1,11 +1,11 @@
 /**
- * Asked in Startups, Airbnb
+ * Asked in Startups, Airbnb, Amazon
  * Design an in-memory file system to simulate the following functions:
  *
  * ls: Given a path in string format.
  *      If it is a file path, return a list that only contains this file's name.
  *      If it is a directory path, return the list of file and directory names in this directory.
- *      Your output (file and directory names together) should in lexicographic order.
+ *      Your output (file and directory names together) should be in lexicographic order.
  *
  * mkdir: Given a directory path that does not exist, you should make a new directory according to the path.
  *      If the middle directories in the path don't exist either, you should create them as well.
@@ -32,8 +32,7 @@
  * except that the path is just "/".
  * You can assume that all operations will be passed valid parameters and users will not attempt to
  * retrieve file content or list a directory or file that does not exist.
- * You can assume that all directory names and file names only contain lower-case letters, and same names
- * won't exist in the same directory.
+ * You can assume that all directory names and file names only contain lower-case letters, and same names won't exist in the same directory.
  */
 package Company;
 
@@ -50,7 +49,7 @@ public class InMemoryFileSystem {
 
     private class TrieNode {
         String content;                                         // null for directories
-        Map<String, TrieNode> children = new TreeMap<>();       // since we don't have duplicates, use TreeMap
+        Map<String, TrieNode> children = new TreeMap<>();       // since we don't have duplicates, use TreeMap for lexicographical sorting
     }
 
     private TrieNode root;
@@ -60,7 +59,7 @@ public class InMemoryFileSystem {
     }
 
     // ls
-    // TC : O(logN) for going to that node and get all children
+    // TC : O(N) for going to that node and get all children
     public List<String> ls(String path) {
         TrieNode node = root;
         String[] dirs = path.split("/");
@@ -81,7 +80,7 @@ public class InMemoryFileSystem {
     private TrieNode createDirectoryIfNotExists(String path) {
         TrieNode node = root;
         String[] dirs = path.split("/");
-        String curr;
+        String curr = null;
 
         for (int i=1; i<dirs.length; i++) {
             curr = dirs[i];
@@ -93,14 +92,15 @@ public class InMemoryFileSystem {
 
         return node;        // return last node
     }
+
     // mkdir
-    // TC : O(logN) for adding
+    // TC : O(N) for adding
     public void mkdir(String path) {
         this.createDirectoryIfNotExists(path);
     }
 
     // add content
-    // TC : O(logN) for adding
+    // TC : O(N) for adding
     public void addContentToFile(String path, String content) {
         TrieNode lastNode = this.createDirectoryIfNotExists(path.substring(0, path.lastIndexOf("/")));
         String fileName = path.substring(path.lastIndexOf("/") + 1);
@@ -113,7 +113,7 @@ public class InMemoryFileSystem {
     }
 
     // read content
-    // TC : O(logN) for reaching that node
+    // TC : O(N) for reaching that node
     public String readContentFromFile(String path) {
         TrieNode lastNode = this.createDirectoryIfNotExists(path);
         return lastNode.content;
