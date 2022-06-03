@@ -15,6 +15,12 @@ package LowLevelSystemDesign;
  * @since 02/Jun/2022
  **/
 
+/*
+
+private static final int boardDim = 3;
+private static final int playerCount = 2;
+
+ */
 public class TicTacToe {
 
     // driver - main method
@@ -25,9 +31,6 @@ public class TicTacToe {
 }
 
 class Game {
-    private static final int boardDim = 3;
-    private static final int playerCount = 2;
-    
     private Board board;
     private Player[] players;
     private Player turn;
@@ -71,10 +74,6 @@ class Game {
         this.status = status;
     }
 
-    public boolean checkIfWon() {
-        return false;
-    }
-
     public void endGame() {
         System.exit(0);
     }
@@ -92,7 +91,7 @@ class Player extends Person {
     }
 
     public void put() {
-        // ask for coordinate
+        // ask for coordinate, hard-coded for now
         int x = 1;
         int y = 1;
         if (isValidMove(x, y)) {
@@ -102,6 +101,7 @@ class Player extends Person {
             if (isWon(x, y)) {
                 // congratulate logic
                 // end
+                game.endGame();
             }
             this.turn = (this.turn + 1) % game.getPlayers().length;
             Player[] players = game.getPlayers();
@@ -269,7 +269,7 @@ class Person {
 
 enum Status {
     ENDED_NOT_DRAW,
-    DRAW,
+    ENDED_IN_DRAW,
     IN_PROGRESS
 }
 
