@@ -11,7 +11,7 @@ package Company.Amazon.LLD;
 import java.util.Stack;
 
 /*
-    OOD principles -
+    DesignPrinciples principles -
 
     S - Single-responsibility Principle.
     O - Open-closed Principle.
