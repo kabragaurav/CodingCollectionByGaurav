@@ -91,11 +91,13 @@ public class Elevator {
 
     private void addDownPendingJobs() {
         currJobs = downPendingJobs;
+        downPendingJobs = new TreeSet<>();
         direction = Direction.DOWN;
     }
 
     private void addUpPendingJobs() {
         currJobs = upPendingJobs;
+        upPendingJobs = new TreeSet<>();
         direction = Direction.UP;
     }
 
